@@ -1,0 +1,73 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://CharacterImages/beetroot.png" type="Texture" id=1]
+[ext_resource path="res://CharacterImages/faces.png" type="Texture" id=2]
+[ext_resource path="res://CharacterImages/beetroot.gd" type="Script" id=3]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 20, 30, 299, 348 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 308, -31, 472, 539 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 872, -40, 439, 539 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( -22, 623, 411, 349 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 504, 631, 507, 360 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 1951, 564, 495, 436 )
+
+[node name="Beetroot" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Beetroot" type="Sprite" parent="."]
+position = Vector2( 13, -92 )
+scale = Vector2( 0.517493, 0.517493 )
+texture = SubResource( 1 )
+region_rect = Rect2( 20, 30, 299, 348 )
+
+[node name="Faces" type="Sprite" parent="."]
+visible = false
+position = Vector2( 31, -121 )
+scale = Vector2( -0.206, 0.206 )
+texture = SubResource( 2 )
+
+[node name="Faces2" type="Sprite" parent="."]
+visible = false
+position = Vector2( 29, -120 )
+scale = Vector2( -0.206, 0.206 )
+texture = SubResource( 3 )
+
+[node name="Faces3" type="Sprite" parent="."]
+position = Vector2( 29, -120 )
+scale = Vector2( -0.206, 0.206 )
+texture = SubResource( 4 )
+
+[node name="Faces4" type="Sprite" parent="."]
+visible = false
+position = Vector2( 29, -120 )
+scale = Vector2( -0.206, 0.206 )
+texture = SubResource( 5 )
+
+[node name="Faces5" type="Sprite" parent="."]
+visible = false
+position = Vector2( 29, -115 )
+scale = Vector2( -0.206, 0.206 )
+texture = SubResource( 6 )
