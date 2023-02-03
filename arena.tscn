@@ -26,4 +26,5 @@ current = true
 position = Vector2( -502, -590 )
 
 [node name="healthbar2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 429, -593 )
+position = Vector2( 501, -592 )
+scale = Vector2( -1, 1 )
