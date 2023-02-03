@@ -2,9 +2,7 @@
 
 [ext_resource path="res://health/health.gd" type="Script" id=1]
 
-[node name="Node2D" type="Node2D"]
-
-[node name="ProgressBar" type="ProgressBar" parent="."]
+[node name="ProgressBar" type="ProgressBar"]
 margin_right = 74.0
 margin_bottom = 14.0
 value = 100.0
