@@ -94,8 +94,17 @@ func onFightButtonPressed():
 	var fighter_prototype = preload("res://fighter_prototype.tscn")
 	var fighter1 = fighter_prototype.instance()
 	var fighter2 = fighter_prototype.instance()
-	fighter1.add_child(player1.duplicate())
-	fighter2.add_child(player2.duplicate())
+	var character1 = player1.duplicate()
+	var character2 = player2.duplicate()
+	character1.name = "character"
+	character2.name = "character"
+	fighter1.add_child(character1)
+	fighter2.add_child(character2)
+	fighter1.name = "fighter1"
+	fighter2.name = "fighter2"
+	fighter1.translate(Vector2(200, 200))
+	fighter2.translate(Vector2(400, 200))
+	
 	arena.add_child(fighter1)
 	arena.add_child(fighter2)
 	var game_node = get_node("/root/Game")
