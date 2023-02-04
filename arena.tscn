@@ -29,18 +29,6 @@ position = Vector2( 0, -300 )
 rotating = true
 current = true
 
-[node name="healthbar1" parent="." instance=ExtResource( 2 )]
-margin_left = -495.0
-margin_top = -587.0
-margin_right = -12.0
-margin_bottom = -559.0
-
-[node name="healthbar2" parent="." instance=ExtResource( 2 )]
-margin_left = 17.0
-margin_top = -587.0
-margin_right = 500.0
-margin_bottom = -559.0
-
 [node name="player1_spawn" type="Position2D" parent="."]
 position = Vector2( -195, -242 )
 
@@ -57,13 +45,25 @@ margin_bottom = 230.0
 
 [node name="battle_msg" type="Label" parent="ui_overlay"]
 margin_left = -2.0
-margin_top = -5.0
+margin_top = 310.0
 margin_right = 1021.0
-margin_bottom = 281.0
+margin_bottom = 596.0
 custom_fonts/font = SubResource( 1 )
 text = "Victory"
 align = 1
 valign = 1
+
+[node name="healthbar1" parent="ui_overlay" instance=ExtResource( 2 )]
+margin_left = 14.0
+margin_top = 8.0
+margin_right = 497.0
+margin_bottom = 36.0
+
+[node name="healthbar2" parent="ui_overlay" instance=ExtResource( 2 )]
+margin_left = 526.0
+margin_top = 8.0
+margin_right = 1009.0
+margin_bottom = 36.0
 
 [node name="announce_victory" type="AudioStreamPlayer2D" parent="."]
 position = Vector2( -509, -595 )

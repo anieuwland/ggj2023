@@ -2,8 +2,8 @@ extends Node2D
 
 onready var fighter1 = get_node("fighter1")
 onready var fighter2 = get_node("fighter2")
-onready var healthbar1 = get_node("healthbar1")
-onready var healthbar2 = get_node("healthbar2")
+onready var healthbar1 = $ui_overlay/healthbar1
+onready var healthbar2 = $ui_overlay/healthbar1
 onready var countdown = $ui_overlay/countdown
 
 var wins_p1: int = 0
