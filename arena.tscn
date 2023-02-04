@@ -9,7 +9,11 @@
 position = Vector2( -2, -3 )
 script = ExtResource( 3 )
 
+[node name="background" parent="." instance=ExtResource( 4 )]
+position = Vector2( -512, -600 )
+
 [node name="Polygon2D" type="Polygon2D" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 7, -242 )
 scale = Vector2( 1000, 1 )
 polygon = PoolVector2Array( 1, 1, 1, -1, -1, -1, -1, 1 )
@@ -31,18 +35,16 @@ margin_top = -587.0
 margin_right = 500.0
 margin_bottom = -559.0
 
-[node name="countdown" parent="." instance=ExtResource( 1 )]
-visible = false
-margin_left = -509.0
-margin_top = -595.0
-margin_right = 512.0
-margin_bottom = -365.0
-
 [node name="player1_spawn" type="Position2D" parent="."]
 position = Vector2( -195, -242 )
 
 [node name="player2_spawn" type="Position2D" parent="."]
 position = Vector2( 205, -242 )
 
-[node name="Control" parent="." instance=ExtResource( 4 )]
-position = Vector2( -512, -600 )
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2( -509, -595 )
+z_index = 10
+
+[node name="countdown" parent="Node2D" instance=ExtResource( 1 )]
+margin_right = 1021.0
+margin_bottom = 230.0

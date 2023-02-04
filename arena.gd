@@ -4,7 +4,7 @@ onready var fighter1 = get_node("fighter1")
 onready var fighter2 = get_node("fighter2")
 onready var healthbar1 = get_node("healthbar1")
 onready var healthbar2 = get_node("healthbar2")
-onready var countdown = get_node("countdown")
+onready var countdown = $Node2D/countdown
 
 var wins_p1: int = 0
 var wins_p2: int = 0
