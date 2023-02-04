@@ -31,6 +31,7 @@ func reset():
 	_enable_object(fighter2, false)
 
 	$battle_restart_timer.wait_time = 3
+	$background.juicyness = 0
 	fighter1.reset()
 	fighter2.reset()
 	healthbar1.reset()
@@ -41,11 +42,20 @@ func on_fighter1_deal_damage(fighter: Node, damage: float) -> void:
 	if fighter.name == "fighter2":
 		fighter2.on_suffer(damage)
 		healthbar2.suffer(damage)
+	$background.juicyness = calc_juicyness()
 
 func on_fighter2_deal_damage(fighter: Node, damage: float) -> void:
 	if fighter.name == "fighter1":
 		fighter1.on_suffer(damage)
 		healthbar1.suffer(damage)
+	$background.juicyness = calc_juicyness()
+
+func calc_juicyness() -> float:
+	var dealt1 = healthbar1.health_max - healthbar1.health
+	var dealt2 = healthbar2.health_max - healthbar2.health
+	var dealt = dealt1 + dealt2
+	var dealt_perc = dealt / (healthbar1.health_max + healthbar2.health_max)
+	return dealt_perc
 
 func on_depleted_health1():
 	wins_p2 += 1
