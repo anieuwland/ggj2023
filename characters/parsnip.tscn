@@ -2121,7 +2121,7 @@ uv = PoolVector2Array( 12.8205, 1320.51, 582.051, 1266.67, 1069.23, 1230.77, 141
 bones = [ "hip", PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ), "hip/face", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "hip/arm_r_1", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "hip/arm_r_1/arm_r_2", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "hip/arm_r_1/arm_r_2/arm_r_3", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "hip/arm_l_1", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "hip/arm_l_1/arm_l_2", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "hip/arm_l_1/arm_l_2/arm_l_3", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "hip/leg_l_1", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "hip/leg_l_1/leg_l_2", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "hip/leg_l_1/leg_l_2/leg_l_3", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "hip/leg_r_1", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "hip/leg_r_1/leg_r_2", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "hip/leg_r_1/leg_r_2/leg_r_3", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="juice_center" type="Node2D" parent="visuals/parsnip"]
-position = Vector2( 277.259, 616.913 )
+position = Vector2( 941.641, 1366.13 )
 scale = Vector2( -1, 1 )
 
 [node name="smileface" type="Polygon2D" parent="visuals"]
@@ -2158,18 +2158,18 @@ position = Vector2( 0, -29 )
 rotation = 0.00390159
 
 [node name="hip" type="Bone2D" parent="Skeleton2D"]
-position = Vector2( 15.8749, -85.9501 )
+position = Vector2( 15, -87 )
 rotation = -1.58387
 rest = Transform2D( -0.0130766, -0.999915, 0.999915, -0.0130766, 15, -87 )
 
 [node name="face" type="Bone2D" parent="Skeleton2D/hip"]
-position = Vector2( 63.3607, -27.1738 )
+position = Vector2( 23.1026, -7.69854 )
 scale = Vector2( 1, 0.678981 )
 rest = Transform2D( 1, 0, 0, 1, 63.3607, -27.1738 )
 
 [node name="arm_r_1" type="Bone2D" parent="Skeleton2D/hip"]
-position = Vector2( 51.6625, -50.3287 )
-rotation = 0.350236
+position = Vector2( 2.60136, -45.9699 )
+rotation = -1.33651
 scale = Vector2( 0.292663, 0.292663 )
 rest = Transform2D( 0.288516, 0.0490949, -0.0490949, 0.288516, 51.6625, -50.3287 )
 __meta__ = {
@@ -2177,13 +2177,13 @@ __meta__ = {
 }
 
 [node name="arm_r_2" type="Bone2D" parent="Skeleton2D/hip/arm_r_1"]
-position = Vector2( -109.736, -38.1381 )
-rotation = 2.5189
+position = Vector2( -170.845, -13.6676 )
+rotation = 2.48353
 scale = Vector2( 0.292663, 0.292663 )
 rest = Transform2D( -0.257346, 0.139373, -0.139373, -0.257346, -109.736, -38.1381 )
 
 [node name="arm_r_3" type="Bone2D" parent="Skeleton2D/hip/arm_r_1/arm_r_2"]
-position = Vector2( -466.753, -116.02 )
+position = Vector2( -537.059, -11.675 )
 scale = Vector2( 0.292663, 0.292663 )
 rest = Transform2D( 0.292663, 0, 0, 0.292663, -466.753, -116.02 )
 
@@ -2200,41 +2200,40 @@ scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 5 )
 
 [node name="arm_l_1" type="Bone2D" parent="Skeleton2D/hip"]
-position = Vector2( 48.8781, 9.63998 )
-rotation = 0.289053
+position = Vector2( -10.0645, 4.8688 )
+rotation = -1.25973
 scale = Vector2( 0.292663, 0.292663 )
 rest = Transform2D( 0.266322, 0.121343, -0.121343, 0.266322, 48.8781, 9.63998 )
 
 [node name="arm_l_2" type="Bone2D" parent="Skeleton2D/hip/arm_l_1"]
-position = Vector2( -118.85, 52.2849 )
-rotation = 2.29471
+position = Vector2( -170.845, -13.6676 )
+rotation = 1.83664
 scale = Vector2( 0.292663, 0.292663 )
 rest = Transform2D( -0.117621, 0.267987, -0.267987, -0.117621, -118.85, 52.2849 )
 
 [node name="arm_l_3" type="Bone2D" parent="Skeleton2D/hip/arm_l_1/arm_l_2"]
-position = Vector2( -418.895, 59.1855 )
+position = Vector2( -537.059, -11.675 )
 scale = Vector2( 0.292663, 0.292663 )
 rest = Transform2D( 0.292663, 0, 0, 0.292663, -418.895, 59.1855 )
 
 [node name="leg_l_1" type="Bone2D" parent="Skeleton2D/hip"]
 position = Vector2( -44.8523, -11.5875 )
-rotation = 1.62255
+rotation = 1.58387
 rest = Transform2D( -0.0130766, 0.999915, -0.999915, -0.0130766, -44.8523, -11.5875 )
 
 [node name="leg_l_2" type="Bone2D" parent="Skeleton2D/hip/leg_l_1"]
 position = Vector2( -14, 29 )
-rotation = -0.0507292
 rest = Transform2D( 1, 0, 0, 1, -14, 29 )
 
 [node name="leg_l_3" type="Bone2D" parent="Skeleton2D/hip/leg_l_1/leg_l_2"]
 position = Vector2( 22, 39 )
-rotation = -3.10562
+rotation = 1.13735
 scale = Vector2( 0.999999, 0.999999 )
 rest = Transform2D( -0.999417, -0.0341226, 0.0341226, -0.999417, 22, 39 )
 
 [node name="leg_r_1" type="Bone2D" parent="Skeleton2D/hip"]
 position = Vector2( -49.4334, -43.6501 )
-rotation = 1.54277
+rotation = 1.58387
 rest = Transform2D( -0.0130766, 0.999915, -0.999915, -0.0130766, -49.4334, -43.6501 )
 __meta__ = {
 "_edit_ik_": true
@@ -2242,12 +2241,11 @@ __meta__ = {
 
 [node name="leg_r_2" type="Bone2D" parent="Skeleton2D/hip/leg_r_1"]
 position = Vector2( -26, 23 )
-rotation = -0.940218
 rest = Transform2D( 1, 0, 0, 1, -26, 23 )
 
 [node name="leg_r_3" type="Bone2D" parent="Skeleton2D/hip/leg_r_1/leg_r_2"]
 position = Vector2( -28.9642, 23.3237 )
-rotation = -2.14121
+rotation = 3.08087
 rest = Transform2D( -0.668325, -0.743869, 0.743869, -0.668325, -28.9642, 23.3237 )
 
 [node name="hitbox" type="Area2D" parent="Skeleton2D/hip"]
