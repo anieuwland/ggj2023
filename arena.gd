@@ -4,7 +4,7 @@ onready var fighter1 = get_node("fighter1")
 onready var fighter2 = get_node("fighter2")
 onready var healthbar1 = get_node("healthbar1")
 onready var healthbar2 = get_node("healthbar2")
-onready var countdown = $Node2D/countdown
+onready var countdown = $ui_overlay/countdown
 
 var wins_p1: int = 0
 var wins_p2: int = 0
@@ -25,7 +25,7 @@ func _process(delta):
 	pass
 
 func reset():
-	$battle_msg.hide()
+	$ui_overlay/battle_msg.hide()
 	
 	_enable_object(fighter1, false)
 	_enable_object(fighter2, false)
@@ -58,8 +58,8 @@ func on_depleted_health2():
 func on_depleted_health(victor):
 	_enable_object(fighter1, false)
 	_enable_object(fighter2, false)
-	$battle_msg.text = "Victory " + victor
-	$battle_msg.show()
+	$ui_overlay/battle_msg.text = "Victory " + victor
+	$ui_overlay/battle_msg.show()
 	$announce_victory.play()
 	$battle_restart_timer.start()
 
