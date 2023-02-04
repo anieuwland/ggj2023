@@ -45,6 +45,9 @@ func on_fighter2_deal_damage(fighter: Node, damage: float) -> void:
 
 func on_depleted_health1():
 	wins_p2 += 1
+	_enable_object(fighter1, false)
+	_enable_object(fighter2, false)
+	$battle_msg.show()
 	on_depleted_health()
 
 func on_depleted_health2():
