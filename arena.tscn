@@ -34,3 +34,9 @@ margin_left = -509.0
 margin_top = -595.0
 margin_right = 512.0
 margin_bottom = -365.0
+
+[node name="player1_spawn" type="Position2D" parent="."]
+position = Vector2( -200, 0 )
+
+[node name="player2_spawn" type="Position2D" parent="."]
+position = Vector2( 200, 0 )
