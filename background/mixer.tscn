@@ -1,17 +1,80 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://background/assets/mixer.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://background/mixer.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
-[node name="Mixer" type="AnimatedSprite"]
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Mixer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Mixer:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Shake"
+length = 0.1
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Mixer:position")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -3, -7 ), Vector2( 5, 3 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Mixer:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 2.355, -2.03732 ]
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Mixer" type="AnimatedSprite" parent="."]
 frames = ExtResource( 1 )
 script = ExtResource( 2 )
 
-[node name="MixerCollider" type="StaticBody2D" parent="."]
+[node name="MixerCollider" type="StaticBody2D" parent="Mixer"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MixerCollider"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mixer/MixerCollider"]
 position = Vector2( -23, 150 )
 scale = Vector2( 23.3104, 29.8186 )
 shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 2 )
+anims/Shake = SubResource( 3 )

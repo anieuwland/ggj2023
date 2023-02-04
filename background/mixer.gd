@@ -8,7 +8,8 @@ onready var collider = $MixerCollider
 func _ready():
 	initial_collision_mask = collider.collision_mask
 	initial_collision_layer = collider.collision_layer
-
+	$"../AnimationPlayer".play("Shake")
+	
 func _process(delta):
 	if (playing):
 		collider.collision_mask = initial_collision_mask
