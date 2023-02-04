@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://characters/beetroot.gd" type="Script" id=1]
 [ext_resource path="res://characters/beetroot.png" type="Texture" id=2]
@@ -591,9 +591,21 @@ tracks/16/keys = {
 [sub_resource type="AnimationNodeAnimation" id=11]
 animation = "idle"
 
+[sub_resource type="AnimationNodeAnimation" id=15]
+animation = "punch"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=17]
+switch_mode = 2
+auto_advance = true
+
 [sub_resource type="AnimationNodeStateMachine" id=9]
 states/idle/node = SubResource( 11 )
 states/idle/position = Vector2( 320, 80 )
+states/punch/node = SubResource( 15 )
+states/punch/position = Vector2( 516, 80 )
+transitions = [ "idle", "punch", SubResource( 16 ), "punch", "idle", SubResource( 17 ) ]
 start_node = "idle"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=10]
@@ -809,4 +821,5 @@ anims/punch = SubResource( 14 )
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 9 )
 anim_player = NodePath("../AnimationPlayer")
+active = true
 parameters/playback = SubResource( 10 )
