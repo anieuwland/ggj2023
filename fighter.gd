@@ -3,7 +3,8 @@ extends KinematicBody2D
 export(int, "1", "2") var player_id
 
 const speed = 200.0
-const damage = 10
+const punch_damage = 10
+const kick_damage = 30
 
 var action_left: String
 var action_right: String
@@ -63,7 +64,8 @@ func _on_fist_hit(area: Area2D) -> void:
 					
 					if not fighter == self:
 						if fighter.get_state() != "block":
-							emit_signal("deal_damage", fighter, 10)
+							emit_signal("deal_damage", fighter, punch_damage)
+							fighter.interrupt()
 						else:
 							print("block!")
 		"grab":
@@ -71,17 +73,27 @@ func _on_fist_hit(area: Area2D) -> void:
 				var fighter = area.owner.get_parent()
 				if not hit_targets.has(fighter):
 					hit_targets.append(fighter)
-					print("grab!")
-					#emit_signal("deal_damage", fighter, 10)
+					
+					if not fighter == self:
+						emit_signal("deal_damage", fighter, kick_damage)
+						fighter.throw()
 		_:
 			assert(false, "Hit callback called but not in a matching state.")
 
 func _physics_process(delta):
-	var velocity = 0.0
-	
-	if Input.is_action_pressed(action_left):
-		velocity -= delta * speed
-	if Input.is_action_pressed(action_right):
-		velocity += delta * speed
+	if get_state() != "stun":
+		var velocity = 0.0
 		
-	move_and_collide(Vector2(velocity, 0))
+		if Input.is_action_pressed(action_left):
+			velocity -= delta * speed
+		if Input.is_action_pressed(action_right):
+			velocity += delta * speed
+			
+		move_and_collide(Vector2(velocity, 0))
+
+func throw() -> void:
+	animation_state.travel("stun")
+	
+func interrupt() -> void:
+	if get_state() == "grab":
+		animation_state.travel("stun")
