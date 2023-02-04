@@ -10,11 +10,10 @@ func _on_area_entered(area: Area2D) -> void:
 	emit_signal("hit", area)
 
 func _damage_frame(enabled: bool) -> void:
-	$Sprite.visible = enabled
 	if enabled:
 		monitoring = true
 	else:
 		monitoring = false
 
 func _block_frame(enabled: bool) -> void:
-	$Sprite.visible = enabled
+	pass

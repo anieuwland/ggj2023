@@ -5,6 +5,7 @@ export(int, "1", "2") var player_id
 const speed = 200.0
 const punch_damage = 10
 const kick_damage = 30
+const throw_speed = 400.0
 
 var action_left: String
 var action_right: String
@@ -66,8 +67,6 @@ func _on_fist_hit(area: Area2D) -> void:
 						if fighter.get_state() != "block":
 							emit_signal("deal_damage", fighter, punch_damage)
 							fighter.interrupt()
-						else:
-							print("block!")
 		"grab":
 			if area.name == "hitbox":
 				var fighter = area.owner.get_parent()
@@ -81,7 +80,9 @@ func _on_fist_hit(area: Area2D) -> void:
 			assert(false, "Hit callback called but not in a matching state.")
 
 func _physics_process(delta):
-	if get_state() != "stun":
+	if get_state() == "stun":
+		move_and_collide(Vector2(delta * throw_speed, 0))
+	elif get_state() != "stun":
 		var velocity = 0.0
 		
 		if Input.is_action_pressed(action_left):
@@ -90,6 +91,7 @@ func _physics_process(delta):
 			velocity += delta * speed
 			
 		move_and_collide(Vector2(velocity, 0))
+	
 
 func throw() -> void:
 	animation_state.travel("stun")
