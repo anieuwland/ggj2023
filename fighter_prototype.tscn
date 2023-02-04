@@ -11,3 +11,5 @@ script = ExtResource( 1 )
 [node name="movement_shape" type="CollisionShape2D" parent="."]
 position = Vector2( 11.5, -63 )
 shape = SubResource( 1 )
+
+[node name="impact" type="AudioStreamPlayer2D" parent="."]

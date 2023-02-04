@@ -14,6 +14,7 @@ var action_block: String
 var action_grab: String
 
 signal deal_damage(target, damage)
+var damage_dealt_sound = preload("res://resources/audio/impact1.wav")
 
 var fist: Node
 var hit_targets: Array = []
@@ -66,6 +67,8 @@ func _on_fist_hit(area: Area2D) -> void:
 					if not fighter == self:
 						if fighter.get_state() != "block":
 							emit_signal("deal_damage", fighter, punch_damage)
+							$impact.stream = damage_dealt_sound
+							$impact.play()
 							fighter.interrupt()
 		"grab":
 			if area.name == "hitbox":
