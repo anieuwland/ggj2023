@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://background/assets/blender_full.png" type="Texture" id=1]
 [ext_resource path="res://background/assets/blender_bottom.png" type="Texture" id=2]
+[ext_resource path="res://background/background.gd" type="Script" id=3]
 [ext_resource path="res://background/assets/juice_bottom.png" type="Texture" id=5]
 [ext_resource path="res://background/assets/juice_top.png" type="Texture" id=6]
 
 [node name="Background" type="Node2D"]
+script = ExtResource( 3 )
+juicyness = 1.0
 
 [node name="BlenderFull" type="Sprite" parent="."]
 position = Vector2( 512, 300 )
@@ -20,6 +23,7 @@ z_index = 5
 texture = ExtResource( 2 )
 
 [node name="Juice" type="Node2D" parent="."]
+position = Vector2( 0, 36 )
 
 [node name="JuiceBottom" type="Sprite" parent="Juice"]
 position = Vector2( 512, 300 )
