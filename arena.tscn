@@ -20,7 +20,7 @@ position = Vector2( -512, -600 )
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 modulate = Color( 1, 1, 1, 0 )
-position = Vector2( 7, -242 )
+position = Vector2( 9, -208 )
 scale = Vector2( 1000, 1 )
 polygon = PoolVector2Array( 1, 1, 1, -1, -1, -1, -1, 1 )
 
@@ -30,10 +30,10 @@ rotating = true
 current = true
 
 [node name="player1_spawn" type="Position2D" parent="."]
-position = Vector2( -195, -242 )
+position = Vector2( -193, -208 )
 
 [node name="player2_spawn" type="Position2D" parent="."]
-position = Vector2( 205, -242 )
+position = Vector2( 207, -208 )
 
 [node name="ui_overlay" type="Node2D" parent="."]
 position = Vector2( -509, -595 )
