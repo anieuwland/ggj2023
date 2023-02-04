@@ -9,12 +9,10 @@ export(NodePath) var mixer
 
 onready var mixerNode = get_node(mixer)
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	mixerNode.playing = true
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	pass
+	
+func _process(delta):
+	if Input.is_action_just_pressed("player1_up"):
+		mixerNode.playing = !mixerNode.playing
+		

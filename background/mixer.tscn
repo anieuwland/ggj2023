@@ -1,6 +1,17 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://background/assets/mixer.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://background/mixer.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
 
 [node name="Mixer" type="AnimatedSprite"]
 frames = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="MixerCollider" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MixerCollider"]
+position = Vector2( -23, 150 )
+scale = Vector2( 23.3104, 29.8186 )
+shape = SubResource( 1 )
