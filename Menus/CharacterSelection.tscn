@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://characters/beetroot.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Menus/CharacterSelection.gd" type="Script" id=2]
+[ext_resource path="res://characters/carrot.tscn" type="PackedScene" id=3]
 
 [node name="Root" type="CenterContainer"]
 anchor_right = 1.0
@@ -83,7 +84,8 @@ rect_min_size = Vector2( 200, 200 )
 rect_clip_content = true
 
 [node name="Beetroot" parent="VBoxContainer/Characters/Character1" instance=ExtResource( 1 )]
-position = Vector2( 63, 194 )
+position = Vector2( 91, 185 )
+scale = Vector2( 0.7, 0.7 )
 
 [node name="VSeparator" type="VSeparator" parent="VBoxContainer/Characters"]
 modulate = Color( 1, 1, 1, 0 )
@@ -99,8 +101,9 @@ margin_bottom = 200.0
 rect_min_size = Vector2( 200, 200 )
 rect_clip_content = true
 
-[node name="Beetroot" parent="VBoxContainer/Characters/Character2" instance=ExtResource( 1 )]
-position = Vector2( 108, 192 )
+[node name="Carrot" parent="VBoxContainer/Characters/Character2" instance=ExtResource( 3 )]
+position = Vector2( 89, 188 )
+scale = Vector2( 0.5, 0.5 )
 
 [node name="VSeparator2" type="VSeparator" parent="VBoxContainer/Characters"]
 modulate = Color( 1, 1, 1, 0 )

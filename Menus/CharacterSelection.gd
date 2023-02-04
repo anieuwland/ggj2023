@@ -104,6 +104,7 @@ func onFightButtonPressed():
 	fighter2.name = "fighter2"
 	fighter1.add_child(character1)
 	fighter2.add_child(character2)
+	fighter1.transform = fighter1.transform.scaled(Vector2(-1, 1))
 	fighter1.translate(arena.find_node("player1_spawn").position)
 	fighter2.translate(arena.find_node("player2_spawn").position)
 	fighter1.player_id = 0
