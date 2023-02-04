@@ -24,6 +24,7 @@ var hit_targets: Array = []
 onready var animation_state = get_node("character").find_node("animation")["parameters/playback"]
 
 const juice_scene = preload("res://juice.tscn")
+const juice_big_scene = preload("res://juice_big.tscn")
 
 func get_state() -> String:
 	return animation_state.get_current_node()
@@ -109,6 +110,13 @@ func interrupt() -> void:
 		animation_state.travel("stun")
 		
 func on_suffer(amount: float) -> void: # does not actually deal the damage, just for visuals
-	var juice = juice_scene.instance()
-	juice_center.add_child(juice)
-	juice.emitting = true
+	if amount == punch_damage:
+		var juice = juice_scene.instance()
+		juice_center.add_child(juice)
+		juice.emitting = true
+	elif amount == kick_damage:
+		var juice_big = juice_big_scene.instance()
+		juice_center.add_child(juice_big)
+		juice_big.emitting = true
+	else:
+		assert("No animation for that amount of damage.")
