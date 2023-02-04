@@ -23,8 +23,10 @@ signal deal_damage(target, damage)
 var fist: Node
 var hit_targets: Array = []
 
+onready var animation: AnimationTree = get_node("character").find_node("animation")
+
 func _ready():
-	fist = get_node("fist")
+	fist = get_node("character").find_node("fist")
 	fist.connect("body_entered", self, "on_fist_body_entered")
 	fist.monitoring = false
 	
@@ -47,9 +49,10 @@ func _process(delta):
 	match fight_state:
 		FightState.IDLE:
 			if Input.is_action_just_pressed(action_hit):
-				fight_state = FightState.CHARGE_HIT
-				fight_state_timer.wait_time = charge_hit_time
-				fight_state_timer.start()
+				animation["parameters/playback"].travel("punch")
+				#fight_state = FightState.CHARGE_HIT
+				#fight_state_timer.wait_time = charge_hit_time
+				#fight_state_timer.start()
 
 func on_fight_state_timeout() -> void:
 	match fight_state:
