@@ -20,4 +20,3 @@ func _process(delta):
 	if juicyness > 1:
 		juicyness = 1
 	juice.position.y = lerp(37, 0, juicyness)
-	pass
