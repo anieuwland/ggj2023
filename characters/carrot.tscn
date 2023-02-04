@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://characters/veggies.png" type="Texture" id=1]
 [ext_resource path="res://characters/carrot_arms_legs.png" type="Texture" id=2]
@@ -1569,7 +1569,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.15, 0.5 ),
+"times": PoolRealArray( 0, 0.2, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ 0.0, 0.0, 0.0 ]
@@ -1581,7 +1581,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.15, 0.5 ),
+"times": PoolRealArray( 0, 0.2, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( -109.736, -38.1381 ), Vector2( -109.736, -38.1381 ), Vector2( -109.736, -38.1381 ) ]
@@ -1593,7 +1593,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.15, 0.5 ),
+"times": PoolRealArray( 0, 0.2, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ 179.315, 6.36426, 179.315 ]
@@ -1641,7 +1641,7 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0, 0.15, 0.5 ),
+"times": PoolRealArray( 0, 0.2, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ 19.4178, 33.7899, 19.4178 ]
@@ -1665,7 +1665,7 @@ tracks/9/loop_wrap = true
 tracks/9/imported = false
 tracks/9/enabled = true
 tracks/9/keys = {
-"times": PoolRealArray( 0, 0.15, 0.5 ),
+"times": PoolRealArray( 0, 0.2, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ 0.0, 0.0, 0.0 ]
@@ -1677,7 +1677,7 @@ tracks/10/loop_wrap = true
 tracks/10/imported = false
 tracks/10/enabled = true
 tracks/10/keys = {
-"times": PoolRealArray( 0, 0.15, 0.5 ),
+"times": PoolRealArray( 0, 0.2, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 51.6625, -50.3287 ), Vector2( 51.6625, -50.3287 ), Vector2( 51.6625, -50.3287 ) ]
@@ -1689,7 +1689,7 @@ tracks/11/loop_wrap = true
 tracks/11/imported = false
 tracks/11/enabled = true
 tracks/11/keys = {
-"times": PoolRealArray( 0, 0.15, 0.5 ),
+"times": PoolRealArray( 0, 0.2, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ -19.2708, 73.0176, -19.2708 ]
@@ -1713,7 +1713,7 @@ tracks/13/loop_wrap = true
 tracks/13/imported = false
 tracks/13/enabled = true
 tracks/13/keys = {
-"times": PoolRealArray( 0, 0.15, 0.5 ),
+"times": PoolRealArray( 0, 0.2, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ 125.076, 110.71, 125.076 ]
@@ -1725,7 +1725,7 @@ tracks/14/loop_wrap = true
 tracks/14/imported = false
 tracks/14/enabled = true
 tracks/14/keys = {
-"times": PoolRealArray( 0.3, 0.35 ),
+"times": PoolRealArray( 0.2, 0.25 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
 "args": [ true ],
@@ -1995,6 +1995,9 @@ tracks/14/keys = {
 [sub_resource type="AnimationNodeAnimation" id=20]
 animation = "block"
 
+[sub_resource type="AnimationNodeAnimation" id=49]
+animation = "idle"
+
 [sub_resource type="AnimationNodeAnimation" id=28]
 animation = "grab"
 
@@ -2084,9 +2087,20 @@ xfade_time = 0.1
 [sub_resource type="AnimationNodeStateMachineTransition" id=47]
 xfade_time = 0.1
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=48]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=50]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=51]
+xfade_time = 0.1
+
 [sub_resource type="AnimationNodeStateMachine" id=9]
 states/block/node = SubResource( 20 )
-states/block/position = Vector2( 211, 166 )
+states/block/position = Vector2( 207, 179 )
+states/dummy/node = SubResource( 49 )
+states/dummy/position = Vector2( 47, 156 )
 states/grab/node = SubResource( 28 )
 states/grab/position = Vector2( 495, -19 )
 states/grabbed/node = SubResource( 41 )
@@ -2101,7 +2115,7 @@ states/punch/node = SubResource( 15 )
 states/punch/position = Vector2( 516, 80 )
 states/stun/node = SubResource( 25 )
 states/stun/position = Vector2( 145, 87 )
-transitions = [ "idle", "punch", SubResource( 16 ), "punch", "idle", SubResource( 17 ), "idle", "block", SubResource( 21 ), "block", "idle", SubResource( 22 ), "idle", "stun", SubResource( 26 ), "stun", "idle", SubResource( 27 ), "idle", "grab", SubResource( 29 ), "grab", "idle", SubResource( 30 ), "idle", "kick", SubResource( 34 ), "kick", "idle", SubResource( 35 ), "grab", "stun", SubResource( 36 ), "idle", "kicked", SubResource( 38 ), "kicked", "idle", SubResource( 39 ), "grab", "kick", SubResource( 40 ), "idle", "grabbed", SubResource( 42 ), "grabbed", "kicked", SubResource( 43 ), "grab", "grabbed", SubResource( 44 ), "punch", "grabbed", SubResource( 45 ), "stun", "grabbed", SubResource( 46 ), "block", "grabbed", SubResource( 47 ) ]
+transitions = [ "idle", "punch", SubResource( 16 ), "punch", "idle", SubResource( 17 ), "idle", "block", SubResource( 21 ), "block", "idle", SubResource( 22 ), "idle", "stun", SubResource( 26 ), "stun", "idle", SubResource( 27 ), "idle", "grab", SubResource( 29 ), "grab", "idle", SubResource( 30 ), "idle", "kick", SubResource( 34 ), "kick", "idle", SubResource( 35 ), "grab", "stun", SubResource( 36 ), "idle", "kicked", SubResource( 38 ), "kicked", "idle", SubResource( 39 ), "grab", "kick", SubResource( 40 ), "idle", "grabbed", SubResource( 42 ), "grabbed", "kicked", SubResource( 43 ), "grab", "grabbed", SubResource( 44 ), "punch", "grabbed", SubResource( 45 ), "stun", "grabbed", SubResource( 46 ), "block", "grabbed", SubResource( 47 ), "punch", "stun", SubResource( 48 ), "block", "dummy", SubResource( 50 ), "dummy", "idle", SubResource( 51 ) ]
 start_node = "idle"
 graph_offset = Vector2( -146, -70 )
 
@@ -2159,19 +2173,18 @@ position = Vector2( 0, -29 )
 rotation = 0.00390159
 
 [node name="hip" type="Bone2D" parent="Skeleton2D"]
-position = Vector2( 15, -87 )
+position = Vector2( 16.2732, -85.4721 )
 rotation = -1.58387
-scale = Vector2( 1, 1 )
 rest = Transform2D( -0.0130766, -0.999915, 0.999915, -0.0130766, 15, -87 )
 
 [node name="face" type="Bone2D" parent="Skeleton2D/hip"]
-position = Vector2( 23.1026, -7.69854 )
+position = Vector2( 63.3607, -27.1738 )
 scale = Vector2( 1, 0.678981 )
 rest = Transform2D( 1, 0, 0, 1, 63.3607, -27.1738 )
 
 [node name="arm_r_1" type="Bone2D" parent="Skeleton2D/hip"]
-position = Vector2( 2.60136, -45.9699 )
-rotation = -1.33651
+position = Vector2( 51.6625, -50.3287 )
+rotation = 0.32708
 scale = Vector2( 0.292663, 0.292663 )
 rest = Transform2D( 0.288516, 0.0490949, -0.0490949, 0.288516, 51.6625, -50.3287 )
 __meta__ = {
@@ -2179,13 +2192,13 @@ __meta__ = {
 }
 
 [node name="arm_r_2" type="Bone2D" parent="Skeleton2D/hip/arm_r_1"]
-position = Vector2( -170.845, -13.6676 )
-rotation = 2.48353
+position = Vector2( -109.736, -38.1381 )
+rotation = 2.535
 scale = Vector2( 0.292663, 0.292663 )
 rest = Transform2D( -0.257346, 0.139373, -0.139373, -0.257346, -109.736, -38.1381 )
 
 [node name="arm_r_3" type="Bone2D" parent="Skeleton2D/hip/arm_r_1/arm_r_2"]
-position = Vector2( -537.059, -11.675 )
+position = Vector2( -466.753, -116.02 )
 scale = Vector2( 0.292663, 0.292663 )
 rest = Transform2D( 0.292663, 0, 0, 0.292663, -466.753, -116.02 )
 
@@ -2202,42 +2215,41 @@ scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 5 )
 
 [node name="arm_l_1" type="Bone2D" parent="Skeleton2D/hip"]
-position = Vector2( -10.0645, 4.8688 )
-rotation = -1.25973
+position = Vector2( 48.8781, 9.63998 )
+rotation = 0.306701
 scale = Vector2( 0.292663, 0.292663 )
 rest = Transform2D( 0.266322, 0.121343, -0.121343, 0.266322, 48.8781, 9.63998 )
 
 [node name="arm_l_2" type="Bone2D" parent="Skeleton2D/hip/arm_l_1"]
-position = Vector2( -170.845, -13.6676 )
-rotation = 1.83664
+position = Vector2( -118.85, 52.2849 )
+rotation = 2.25516
 scale = Vector2( 0.292663, 0.292663 )
 rest = Transform2D( -0.117621, 0.267987, -0.267987, -0.117621, -118.85, 52.2849 )
 
 [node name="arm_l_3" type="Bone2D" parent="Skeleton2D/hip/arm_l_1/arm_l_2"]
-position = Vector2( -537.059, -11.675 )
+position = Vector2( -418.895, 59.1855 )
 scale = Vector2( 0.292663, 0.292663 )
 rest = Transform2D( 0.292663, 0, 0, 0.292663, -418.895, 59.1855 )
 
 [node name="leg_l_1" type="Bone2D" parent="Skeleton2D/hip"]
 position = Vector2( -44.8523, -11.5875 )
-rotation = 1.58387
-scale = Vector2( 1, 1 )
+rotation = 1.64016
 rest = Transform2D( -0.0130766, 0.999915, -0.999915, -0.0130766, -44.8523, -11.5875 )
 
 [node name="leg_l_2" type="Bone2D" parent="Skeleton2D/hip/leg_l_1"]
 position = Vector2( -14, 29 )
+rotation = -0.0738229
 rest = Transform2D( 1, 0, 0, 1, -14, 29 )
 
 [node name="leg_l_3" type="Bone2D" parent="Skeleton2D/hip/leg_l_1/leg_l_2"]
 position = Vector2( 22, 39 )
-rotation = 1.13735
+rotation = -3.10478
 scale = Vector2( 0.999999, 0.999999 )
 rest = Transform2D( -0.999417, -0.0341226, 0.0341226, -0.999417, 22, 39 )
 
 [node name="leg_r_1" type="Bone2D" parent="Skeleton2D/hip"]
 position = Vector2( -49.4334, -43.6501 )
-rotation = 1.58387
-scale = Vector2( 1, 1 )
+rotation = 1.56284
 rest = Transform2D( -0.0130766, 0.999915, -0.999915, -0.0130766, -49.4334, -43.6501 )
 __meta__ = {
 "_edit_ik_": true
@@ -2245,12 +2257,12 @@ __meta__ = {
 
 [node name="leg_r_2" type="Bone2D" parent="Skeleton2D/hip/leg_r_1"]
 position = Vector2( -26, 23 )
+rotation = -0.966631
 rest = Transform2D( 1, 0, 0, 1, -26, 23 )
 
 [node name="leg_r_3" type="Bone2D" parent="Skeleton2D/hip/leg_r_1/leg_r_2"]
 position = Vector2( -28.9642, 23.3237 )
-rotation = 3.08087
-scale = Vector2( 1, 1 )
+rotation = -2.14039
 rest = Transform2D( -0.668325, -0.743869, 0.743869, -0.668325, -28.9642, 23.3237 )
 
 [node name="hitbox" type="Area2D" parent="Skeleton2D/hip"]

@@ -63,8 +63,10 @@ func _ready():
 	else:
 		assert(false, "Invalid player_id")
 		
-func _process(_delta):
+func _process(_delta):	
 	match get_state():
+		"dummy":
+			animation_state.travel("idle")
 		"idle":
 			if Input.is_action_just_pressed(action_hit):
 				hit_targets.clear()
@@ -85,7 +87,9 @@ func _on_fist_hit(area: Area2D) -> void:
 					
 					if not fighter == self:
 						if fighter.is_blocking():
-							pass # TODO
+							fist.reset_action()
+							animation_state.travel("stun")
+							fighter.blocksuccess()
 						else:
 							emit_signal("deal_damage", fighter, punch_damage)
 							$impact.pitch_scale = rng.randf_range(0.5, 3.0)
@@ -139,6 +143,10 @@ func interrupt() -> void:
 	if get_state() == "grab":
 		fist.reset_action()
 		animation_state.travel("stun")
+		
+func blocksuccess() -> void:
+	fist.reset_action()
+	animation_state.travel("dummy")
 		
 func on_suffer(amount: float) -> void: # does not actually deal the damage, just for visuals
 	if amount == punch_damage:
