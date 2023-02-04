@@ -17,17 +17,20 @@ signal deal_damage(target, damage)
 var damage_dealt_sound = preload("res://resources/audio/impact1.wav")
 var rng = RandomNumberGenerator.new()
 
-var fist: Node
+onready var juice_center: Node = get_node("character").find_node("juice_center")
+onready var fist: Node = get_node("character").find_node("fist")
 var hit_targets: Array = []
 
 onready var animation_state = get_node("character").find_node("animation")["parameters/playback"]
+
+const juice_scene = preload("res://juice.tscn")
 
 func get_state() -> String:
 	return animation_state.get_current_node()
 
 func _ready():
 	$impact.stream = damage_dealt_sound
-	fist = get_node("character").find_node("fist")
+
 	fist.connect("hit", self, "_on_fist_hit")
 	fist.monitoring = false
 	
@@ -104,3 +107,8 @@ func throw() -> void:
 func interrupt() -> void:
 	if get_state() == "grab":
 		animation_state.travel("stun")
+		
+func on_suffer(amount: float) -> void: # does not actually deal the damage, just for visuals
+	var juice = juice_scene.instance()
+	juice_center.add_child(juice)
+	juice.emitting = true

@@ -1078,7 +1078,7 @@ polygon = PoolVector2Array( 54, 93, 92, 104, 227, 104, 380, 112, 419, 135, 416, 
 uv = PoolVector2Array( 54, 93, 92, 104, 227, 104, 380, 112, 419, 135, 416, 157, 379, 162, 228, 153, 85, 151, 39, 136, 28, 105 )
 bones = [ "hip", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "hip/face", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "hip/arm_r_1", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "hip/arm_r_1/arm_r_2", PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ), "hip/arm_r_1/arm_r_2/arm_r_3", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "hip/arm_l_1", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "hip/arm_l_1/arm_l_2", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "hip/arm_l_1/arm_l_2/arm_l_3", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "hip/leg_l_1", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "hip/leg_l_1/leg_l_2", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "hip/leg_l_1/leg_l_2/leg_l_3", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "hip/leg_r_1", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "hip/leg_r_1/leg_r_2", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "hip/leg_r_1/leg_r_2/leg_r_3", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
-[node name="Beetroot" type="Polygon2D" parent="visuals"]
+[node name="body" type="Polygon2D" parent="visuals"]
 position = Vector2( -59, -175 )
 scale = Vector2( 0.517493, 0.517493 )
 texture = SubResource( 1 )
@@ -1087,6 +1087,9 @@ polygon = PoolVector2Array( -14.6341, -21.1382, -28.4553, 361.789, 33.2374, 361.
 uv = PoolVector2Array( -14.6341, -21.1382, -28.4553, 361.789, 33.2374, 361.789, 292.683, 361.789, 339.837, -26.0163 )
 polygons = [ PoolIntArray( 0, 1, 3, 4 ) ]
 bones = [ "hip", PoolRealArray( 1, 1, 1, 1, 1 ), "hip/face", PoolRealArray( 0, 0, 0, 0, 0 ), "hip/arm_r_1", PoolRealArray( 0, 0, 0, 0, 0 ), "hip/arm_r_1/arm_r_2", PoolRealArray( 0, 0, 0, 0, 0 ), "hip/arm_r_1/arm_r_2/arm_r_3", PoolRealArray( 0, 0, 0, 0, 0 ), "hip/arm_l_1", PoolRealArray( 0, 0, 0, 0, 0 ), "hip/arm_l_1/arm_l_2", PoolRealArray( 0, 0, 0, 0, 0 ), "hip/arm_l_1/arm_l_2/arm_l_3", PoolRealArray( 0, 0, 0, 0, 0 ), "hip/leg_l_1", PoolRealArray( 0, 0, 0, 0, 0 ), "hip/leg_l_1/leg_l_2", PoolRealArray( 0, 0, 0, 0, 0 ), "hip/leg_l_1/leg_l_2/leg_l_3", PoolRealArray( 0, 0, 0, 0, 0 ), "hip/leg_r_1", PoolRealArray( 0, 0, 0, 0, 0 ), "hip/leg_r_1/leg_r_2", PoolRealArray( 0, 0, 0, 0, 0 ), "hip/leg_r_1/leg_r_2/leg_r_3", PoolRealArray( 0, 0, 0, 0, 0 ) ]
+
+[node name="juice_center" type="Node2D" parent="visuals/body"]
+position = Vector2( 164.253, 158.456 )
 
 [node name="Faces4" type="Sprite" parent="visuals"]
 visible = false
@@ -1157,7 +1160,7 @@ bones = [ "hip", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "hip/face", PoolRea
 position = Vector2( 0, -29 )
 
 [node name="hip" type="Bone2D" parent="Skeleton2D"]
-position = Vector2( 14.8348, -86.8017 )
+position = Vector2( 15, -87 )
 rotation = -1.58387
 rest = Transform2D( -0.0130766, -0.999915, 0.999915, -0.0130766, 15, -87 )
 
@@ -1168,7 +1171,7 @@ rest = Transform2D( 0.999894, 0.0145567, -0.0145567, 0.999894, 39.0098, -0.48992
 
 [node name="arm_r_1" type="Bone2D" parent="Skeleton2D/hip"]
 position = Vector2( 2.60136, -45.9699 )
-rotation = 0.391497
+rotation = -1.33651
 scale = Vector2( 0.292663, 0.292663 )
 rest = Transform2D( -0.00382703, 0.292638, -0.292638, -0.00382703, 2.60136, -45.9699 )
 __meta__ = {
@@ -1177,7 +1180,7 @@ __meta__ = {
 
 [node name="arm_r_2" type="Bone2D" parent="Skeleton2D/hip/arm_r_1"]
 position = Vector2( -170.845, -13.6676 )
-rotation = 2.49021
+rotation = 2.48353
 scale = Vector2( 0.292663, 0.292663 )
 rest = Transform2D( 0.292663, 0, 0, 0.292663, -170.845, -13.6676 )
 
@@ -1200,13 +1203,13 @@ texture = ExtResource( 5 )
 
 [node name="arm_l_1" type="Bone2D" parent="Skeleton2D/hip"]
 position = Vector2( -23.5865, 44.6954 )
-rotation = 0.257608
+rotation = -1.25973
 scale = Vector2( 0.292663, 0.292663 )
 rest = Transform2D( -0.00382703, 0.292638, -0.292638, -0.00382703, -23.5865, 44.6954 )
 
 [node name="arm_l_2" type="Bone2D" parent="Skeleton2D/hip/arm_l_1"]
 position = Vector2( -170.845, -13.6676 )
-rotation = 2.36518
+rotation = 1.83664
 scale = Vector2( 0.292663, 0.292663 )
 rest = Transform2D( 0.292663, 0, 0, 0.292663, -170.845, -13.6676 )
 
@@ -1217,25 +1220,24 @@ rest = Transform2D( 0.292663, 0, 0, 0.292663, -537.059, -11.675 )
 
 [node name="leg_l_1" type="Bone2D" parent="Skeleton2D/hip"]
 position = Vector2( -55.0607, 4.28036 )
-rotation = 1.08269
+rotation = 1.58387
 scale = Vector2( 0.886813, 0.886813 )
 rest = Transform2D( -0.0130766, 0.999915, -0.999915, -0.0130766, -55.0607, 4.28036 )
 
 [node name="leg_l_2" type="Bone2D" parent="Skeleton2D/hip/leg_l_1"]
 position = Vector2( 17, 33.9999 )
-rotation = -0.610261
 scale = Vector2( 1.22162, 1.22162 )
 rest = Transform2D( 1, 0, 0, 1, 17, 33.9999 )
 
 [node name="leg_l_3" type="Bone2D" parent="Skeleton2D/hip/leg_l_1/leg_l_2"]
 position = Vector2( -27, 12 )
-rotation = 1.12953
+rotation = 1.13735
 scale = Vector2( 0.723854, 0.981543 )
 rest = Transform2D( 0.419997, 0.907525, -0.907525, 0.419997, -27, 12 )
 
 [node name="leg_r_1" type="Bone2D" parent="Skeleton2D/hip"]
 position = Vector2( -50.6164, -29.6644 )
-rotation = 2.57315
+rotation = 1.58387
 scale = Vector2( 0.846306, 0.846306 )
 rest = Transform2D( -0.0130766, 0.999915, -0.999915, -0.0130766, -50.6164, -29.6644 )
 __meta__ = {
@@ -1244,12 +1246,11 @@ __meta__ = {
 
 [node name="leg_r_2" type="Bone2D" parent="Skeleton2D/hip/leg_r_1"]
 position = Vector2( 3.99998, 44.9999 )
-rotation = -1.06002
 rest = Transform2D( 1, 0, 0, 1, 3.99998, 44.9999 )
 
 [node name="leg_r_3" type="Bone2D" parent="Skeleton2D/hip/leg_r_1/leg_r_2"]
 position = Vector2( 2.037, 42.9122 )
-rotation = 3.09222
+rotation = 3.08087
 rest = Transform2D( -0.998157, 0.0606828, -0.0606828, -0.998157, 2, 42 )
 
 [node name="hitbox" type="Area2D" parent="Skeleton2D/hip"]

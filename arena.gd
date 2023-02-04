@@ -4,9 +4,10 @@ extends Node2D
 onready var healthbar1 = get_node("healthbar1")
 onready var healthbar2 = get_node("healthbar2")
 
+onready var fighter1 = get_node("fighter1")
+onready var fighter2 = get_node("fighter2")
+
 func _ready():
-	var fighter1 = get_node("fighter1")
-	var fighter2 = get_node("fighter2")
 	var countdown = get_node("countdown")
 	
 	fighter1.connect("deal_damage", self, "on_fighter1_deal_damage")
@@ -18,10 +19,12 @@ func _ready():
 
 func on_fighter1_deal_damage(fighter: Node, damage: float) -> void:
 	if fighter.name == "fighter2":
+		fighter2.on_suffer(damage)
 		healthbar2.suffer(damage)
 
 func on_fighter2_deal_damage(fighter: Node, damage: float) -> void:
 	if fighter.name == "fighter1":
+		fighter1.on_suffer(damage)
 		healthbar1.suffer(damage)
 
 func _enable_object(object, enabledness: bool):
