@@ -1,5 +1,6 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
+[ext_resource path="res://characters/beetroot_leaf.png" type="Texture" id=1]
 [ext_resource path="res://characters/beetroot.png" type="Texture" id=2]
 [ext_resource path="res://characters/faces.png" type="Texture" id=3]
 [ext_resource path="res://characters/arms.png" type="Texture" id=4]
@@ -1053,6 +1054,7 @@ states/stun/node = SubResource( 25 )
 states/stun/position = Vector2( 731, 117 )
 transitions = [ "idle", "punch", SubResource( 16 ), "punch", "idle", SubResource( 17 ), "idle", "block", SubResource( 21 ), "block", "idle", SubResource( 22 ), "idle", "grab", SubResource( 26 ), "grab", "idle", SubResource( 27 ), "idle", "stun", SubResource( 28 ), "stun", "idle", SubResource( 29 ), "idle", "kick", SubResource( 30 ), "kick", "idle", SubResource( 31 ) ]
 start_node = "idle"
+graph_offset = Vector2( 61, 77 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=10]
 
@@ -1060,6 +1062,26 @@ start_node = "idle"
 
 [node name="visuals" type="Node2D" parent="."]
 position = Vector2( 0, -29 )
+
+[node name="leaf" type="Polygon2D" parent="visuals"]
+position = Vector2( 11, -274 )
+scale = Vector2( 0.0901328, 0.0901328 )
+texture = ExtResource( 1 )
+skeleton = NodePath("../../Skeleton2D")
+polygon = PoolVector2Array( 56.4102, 1402.56, 192.308, 1112.82, 143.59, 848.718, 287.179, 405.128, 725.641, 133.333, 1133.33, 33.3333, 1453.85, 69.2308, 1525.64, 423.077, 1405.13, 707.692, 1123.08, 1097.44, 720.513, 1279.49, 430.769, 1248.72, 292.308, 1543.59 )
+uv = PoolVector2Array( 56.4102, 1402.56, 192.308, 1112.82, 143.59, 848.718, 287.179, 405.128, 725.641, 133.333, 1133.33, 33.3333, 1453.85, 69.2308, 1525.64, 423.077, 1405.13, 707.692, 1123.08, 1097.44, 720.513, 1279.49, 430.769, 1248.72, 292.308, 1543.59 )
+polygons = [ PoolIntArray( 0, 1, 11, 12 ), PoolIntArray( 11, 10, 2, 1 ), PoolIntArray( 10, 9, 3, 2 ), PoolIntArray( 9, 8, 4, 3 ), PoolIntArray( 8, 7, 5, 4 ), PoolIntArray( 7, 6, 5 ) ]
+bones = [ "hip", PoolRealArray( 0, 0, 0, 0.44, 1, 1, 1, 1, 1, 0.44, 0, 0, 0 ), "hip/face", PoolRealArray( 1, 1, 1, 0.44, 0, 0, 0, 0, 0, 0.44, 1, 1, 1 ), "hip/arm_r_1", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "hip/arm_r_1/arm_r_2", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "hip/arm_r_1/arm_r_2/arm_r_3", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "hip/arm_l_1", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "hip/arm_l_1/arm_l_2", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "hip/arm_l_1/arm_l_2/arm_l_3", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "hip/leg_l_1", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "hip/leg_l_1/leg_l_2", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "hip/leg_l_1/leg_l_2/leg_l_3", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "hip/leg_r_1", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "hip/leg_r_1/leg_r_2", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "hip/leg_r_1/leg_r_2/leg_r_3", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
+
+[node name="leaf2" type="Polygon2D" parent="visuals"]
+position = Vector2( 37, -278 )
+scale = Vector2( -0.0698669, 0.0901328 )
+texture = ExtResource( 1 )
+skeleton = NodePath("../../Skeleton2D")
+polygon = PoolVector2Array( 56.4102, 1402.56, 192.308, 1112.82, 143.59, 848.718, 287.179, 405.128, 725.641, 133.333, 1133.33, 33.3333, 1453.85, 69.2308, 1525.64, 423.077, 1405.13, 707.692, 1123.08, 1097.44, 720.513, 1279.49, 430.769, 1248.72, 292.308, 1543.59 )
+uv = PoolVector2Array( 56.4102, 1402.56, 192.308, 1112.82, 143.59, 848.718, 287.179, 405.128, 725.641, 133.333, 1133.33, 33.3333, 1453.85, 69.2308, 1525.64, 423.077, 1405.13, 707.692, 1123.08, 1097.44, 720.513, 1279.49, 430.769, 1248.72, 292.308, 1543.59 )
+polygons = [ PoolIntArray( 0, 1, 11, 12 ), PoolIntArray( 11, 10, 2, 1 ), PoolIntArray( 10, 9, 3, 2 ), PoolIntArray( 9, 8, 4, 3 ), PoolIntArray( 8, 7, 5, 4 ), PoolIntArray( 7, 6, 5 ) ]
+bones = [ "hip", PoolRealArray( 0, 0, 0, 0.51, 1, 1, 1, 1, 1, 0.51, 0, 0, 0 ), "hip/face", PoolRealArray( 1, 1, 1, 0.4, 0, 0, 0, 0, 0, 0.4, 1, 1, 1 ), "hip/arm_r_1", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "hip/arm_r_1/arm_r_2", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "hip/arm_r_1/arm_r_2/arm_r_3", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "hip/arm_l_1", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "hip/arm_l_1/arm_l_2", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "hip/arm_l_1/arm_l_2/arm_l_3", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "hip/leg_l_1", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "hip/leg_l_1/leg_l_2", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "hip/leg_l_1/leg_l_2/leg_l_3", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "hip/leg_r_1", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "hip/leg_r_1/leg_r_2", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "hip/leg_r_1/leg_r_2/leg_r_3", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="arm_r1" type="Polygon2D" parent="visuals"]
 position = Vector2( -92.6995, -125.815 )
@@ -1269,5 +1291,4 @@ anims/punch = SubResource( 14 )
 [node name="animation" type="AnimationTree" parent="."]
 tree_root = SubResource( 9 )
 anim_player = NodePath("../AnimationPlayer")
-active = true
 parameters/playback = SubResource( 10 )
