@@ -10,3 +10,4 @@
 *.glb filter=lfs diff=lfs merge=lfs -text
 *.material filter=lfs diff=lfs merge=lfs -text
 *.dae filter=lfs diff=lfs merge=lfs -text
+TitanOne-Regular.ttf filter=lfs diff=lfs merge=lfs -text
