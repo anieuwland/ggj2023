@@ -45,7 +45,7 @@ scale = Vector2( 0.3, 0.25 )
 z_index = 10
 
 [node name="P1" parent="Glasses" instance=ExtResource( 4 )]
-position = Vector2( -52, 509 )
+position = Vector2( -52, 520 )
 
 [node name="P2" parent="Glasses" instance=ExtResource( 4 )]
 position = Vector2( 2926.67, 520 )
