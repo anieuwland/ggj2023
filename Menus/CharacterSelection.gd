@@ -4,35 +4,47 @@ extends CenterContainer
 var player1_character = 0
 var player2_character = 3
 var characters = []
+var selectors = []
 var player1: Node = null
 var player2: Node = null
+
+var selector_blue = preload("res://Menus/assets/selector_blue.jpg")
+var selector_red = preload("res://Menus/assets/selector_red.jpg")
+var selector_none = preload("res://Menus/assets/selector_none.jpg")
 
 var char_select_sound = preload("res://resources/audio/charselect.wav")
 
 
-func update_player1():
-		var n = find_node("Player1")
-		while n.get_child_count() > 0:
-			n.remove_child(n.get_child(0))
-		player1 = characters[player1_character].duplicate()
-		n.add_child(player1)
+func update_player1(var old_character: int):
+	selectors[old_character].texture = selector_none
+	var n = find_node("Player1")
+	while n.get_child_count() > 0:
+		n.remove_child(n.get_child(0))
+	player1 = characters[player1_character].duplicate()
+	n.add_child(player1)
+	selectors[player1_character].texture = selector_blue
 
-func update_player2():
-		var n = find_node("Player2")
-		while n.get_child_count() > 0:
-			n.remove_child(n.get_child(0))
-		player2 = characters[player2_character].duplicate()
-		n.add_child(player2)
+func update_player2(var old_character: int):
+	selectors[old_character].texture = selector_none
+	var n = find_node("Player2")
+	while n.get_child_count() > 0:
+		n.remove_child(n.get_child(0))
+	player2 = characters[player2_character].duplicate()
+	n.add_child(player2)
+	selectors[player2_character].texture = selector_red
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	characters.append(find_node("Character1").get_child(0))
-	characters.append(find_node("Character2").get_child(0))
-	characters.append(find_node("Character3").get_child(0))
-	characters.append(find_node("Character4").get_child(0))
-	characters.append(find_node("Character4").get_child(0))
-	update_player1()
-	update_player2()
+	selectors.append(find_node("Character1").get_child(0))
+	selectors.append(find_node("Character2").get_child(0))
+	selectors.append(find_node("Character3").get_child(0))
+	selectors.append(find_node("Character4").get_child(0))
+	characters.append(find_node("Character1").get_child(1))
+	characters.append(find_node("Character2").get_child(1))
+	characters.append(find_node("Character3").get_child(1))
+	characters.append(find_node("Character4").get_child(1))
+	update_player1(0)
+	update_player2(0)
 	$AudioStreamPlayer2D.stream = char_select_sound
 	$AudioStreamPlayer2D.play()
 
@@ -47,7 +59,7 @@ func _process(delta):
 		if player1_character < 0:
 			player1_character = initial_value
 		else:
-			update_player1()
+			update_player1(initial_value)
 
 	if Input.is_action_just_pressed("player1_right"):
 		var initial_value = player1_character
@@ -57,7 +69,7 @@ func _process(delta):
 		if player1_character > 3:
 			player1_character = initial_value
 		else:
-			update_player1()
+			update_player1(initial_value)
 	
 	if Input.is_action_just_pressed("player2_left"):
 		var initial_value = player2_character
@@ -67,7 +79,7 @@ func _process(delta):
 		if player2_character < 0:
 			player2_character = initial_value
 		else:
-			update_player2()
+			update_player2(initial_value)
 
 	if Input.is_action_just_pressed("player2_right"):
 		var initial_value = player2_character
@@ -77,7 +89,7 @@ func _process(delta):
 		if player2_character > 3:
 			player2_character = initial_value
 		else:
-			update_player2()
+			update_player2(initial_value)
 
 func onFightButtonPressed():
 	var arena = preload("res://arena.tscn").instance()

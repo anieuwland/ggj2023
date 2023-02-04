@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://characters/beetroot.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Menus/CharacterSelection.gd" type="Script" id=2]
 [ext_resource path="res://characters/carrot.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Menus/assets/selector_none.jpg" type="Texture" id=4]
 
 [node name="Root" type="CenterContainer"]
 anchor_right = 1.0
@@ -83,6 +84,12 @@ margin_bottom = 200.0
 rect_min_size = Vector2( 200, 200 )
 rect_clip_content = true
 
+[node name="Texture" type="TextureRect" parent="VBoxContainer/Characters/Character1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 4 )
+expand = true
+
 [node name="Beetroot" parent="VBoxContainer/Characters/Character1" instance=ExtResource( 1 )]
 position = Vector2( 91, 185 )
 scale = Vector2( 0.7, 0.7 )
@@ -100,6 +107,12 @@ margin_right = 428.0
 margin_bottom = 200.0
 rect_min_size = Vector2( 200, 200 )
 rect_clip_content = true
+
+[node name="Texture" type="TextureRect" parent="VBoxContainer/Characters/Character2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 4 )
+expand = true
 
 [node name="Carrot" parent="VBoxContainer/Characters/Character2" instance=ExtResource( 3 )]
 position = Vector2( 89, 188 )
@@ -119,6 +132,12 @@ margin_bottom = 200.0
 rect_min_size = Vector2( 200, 200 )
 rect_clip_content = true
 
+[node name="Texture" type="TextureRect" parent="VBoxContainer/Characters/Character3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 4 )
+expand = true
+
 [node name="Beetroot" parent="VBoxContainer/Characters/Character3" instance=ExtResource( 1 )]
 position = Vector2( 63, 225 )
 
@@ -135,6 +154,12 @@ margin_right = 884.0
 margin_bottom = 200.0
 rect_min_size = Vector2( 200, 200 )
 rect_clip_content = true
+
+[node name="Texture" type="TextureRect" parent="VBoxContainer/Characters/Character4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 4 )
+expand = true
 
 [node name="Beetroot" parent="VBoxContainer/Characters/Character4" instance=ExtResource( 1 )]
 position = Vector2( 112, 194 )
