@@ -841,10 +841,10 @@ tracks/14/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
 "args": [ true ],
-"method": "_damage_frame"
+"method": "_grab_frame"
 }, {
 "args": [ false ],
-"method": "_damage_frame"
+"method": "_grab_frame"
 } ]
 }
 tracks/15/type = "value"

@@ -17,3 +17,9 @@ func _damage_frame(enabled: bool) -> void:
 
 func _block_frame(enabled: bool) -> void:
 	pass
+
+func _grab_frame(enabled: bool) -> void:
+	if enabled:
+		monitoring = true
+	else:
+		monitoring = false
