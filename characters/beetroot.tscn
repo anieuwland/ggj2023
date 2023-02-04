@@ -1126,7 +1126,6 @@ position = Vector2( 0, -29 )
 [node name="hip" type="Bone2D" parent="Skeleton2D"]
 position = Vector2( 15, -87 )
 rotation = -1.58387
-scale = Vector2( 1, 1 )
 rest = Transform2D( -0.0130766, -0.999915, 0.999915, -0.0130766, 15, -87 )
 
 [node name="face" type="Bone2D" parent="Skeleton2D/hip"]
@@ -1216,12 +1215,10 @@ rest = Transform2D( 1, 0, 0, 1, 3.99998, 44.9999 )
 [node name="leg_r_3" type="Bone2D" parent="Skeleton2D/hip/leg_r_1/leg_r_2"]
 position = Vector2( 2.037, 42.9122 )
 rotation = 3.08087
-scale = Vector2( 1, 1 )
 rest = Transform2D( -0.998157, 0.0606828, -0.0606828, -0.998157, 2, 42 )
 
 [node name="hitbox" type="Area2D" parent="Skeleton2D/hip"]
 position = Vector2( 7.94701, 4.10427 )
-scale = Vector2( 1, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Skeleton2D/hip/hitbox"]
 shape = SubResource( 13 )
@@ -1233,7 +1230,7 @@ anims/grab = SubResource( 19 )
 anims/idle = SubResource( 8 )
 anims/punch = SubResource( 14 )
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="animation" type="AnimationTree" parent="."]
 tree_root = SubResource( 9 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
