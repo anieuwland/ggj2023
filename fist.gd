@@ -8,6 +8,7 @@ var action_active: bool = false
 
 onready var smileface: Node2D = $"../../../../../../visuals/smileface"
 onready var happyface: Node2D = $"../../../../../../visuals/happyface"
+onready var cryface: Node2D = $"../../../../../../visuals/cryface"
 onready var animation: AnimationTree = $"../../../../../../animation"
 
 func _ready():
