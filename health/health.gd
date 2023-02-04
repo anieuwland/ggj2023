@@ -7,7 +7,6 @@ var damage = 10.0 # 10 damage
 
 
 func _init():
-	print("Hello, world!")
 	update_healthbar(health)
 
 
@@ -22,7 +21,6 @@ func _process(delta):
 
 func get_input():
 	if Input.is_action_pressed('debug_health_space'):
-		print("DAMAGE ", health, " ", value)
 		suffer(damage)
 
 func suffer(damage):
