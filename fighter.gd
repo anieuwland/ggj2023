@@ -5,7 +5,7 @@ export(int, "1", "2") var player_id
 const speed = 200.0
 const punch_damage = 10
 const kick_damage = 30
-const throw_speed = 400.0
+const throw_speed = 1000.0
 
 var action_left: String
 var action_right: String
@@ -29,6 +29,11 @@ onready var animation_state = get_node("character").find_node("animation")["para
 const juice_scene = preload("res://juice.tscn")
 const juice_big_scene = preload("res://juice_big.tscn")
 
+var target: Node = null
+
+func is_blocking() -> bool:
+	return get_state() == "block" and fist.action_active
+
 func get_state() -> String:
 	return animation_state.get_current_node()
 	
@@ -39,6 +44,7 @@ func _ready():
 	$impact.stream = damage_dealt_sound
 
 	fist.connect("hit", self, "_on_fist_hit")
+	fist.connect("kick", self, "_on_kick")
 	fist.monitoring = false
 	init_transform = self.transform
 	
@@ -78,7 +84,9 @@ func _on_fist_hit(area: Area2D) -> void:
 					hit_targets.append(fighter)
 					
 					if not fighter == self:
-						if fighter.get_state() != "block":
+						if fighter.is_blocking():
+							pass # TODO
+						else:
 							emit_signal("deal_damage", fighter, punch_damage)
 							$impact.pitch_scale = rng.randf_range(0.5, 3.0)
 							$impact.play()
@@ -89,16 +97,17 @@ func _on_fist_hit(area: Area2D) -> void:
 				if not hit_targets.has(fighter):
 					hit_targets.append(fighter)
 					
-					if not fighter == self:
-						emit_signal("deal_damage", fighter, kick_damage)
-						fighter.throw()
+					if not fighter == self and target == null:
+						target = fighter
+						target.getgrabbed()
+						animation_state.travel("kick")
 		_:
-			assert(false, "Hit callback called but not in a matching state.")
+			print("Hit callback called but not in a matching state.")
 
 func _physics_process(delta):
-	if get_state() == "stun":
+	if get_state() == "kicked":
 		move_and_collide(Vector2(delta * throw_speed, 0))
-	elif get_state() != "stun":
+	elif get_state() != "stun" and get_state() != "grabbed" and get_state() != "kicked":
 		var velocity = 0.0
 		
 		if Input.is_action_pressed(action_left):
@@ -107,13 +116,21 @@ func _physics_process(delta):
 			velocity += delta * speed
 			
 		move_and_collide(Vector2(velocity, 0))
-	
+
+func _on_kick() -> void:
+	emit_signal("deal_damage", target, kick_damage)
+	target.throw()
+	target = null
 
 func throw() -> void:
-	animation_state.travel("stun")
+	animation_state.travel("kicked")
+	
+func getgrabbed() -> void:
+	animation_state.travel("grabbed")
 	
 func interrupt() -> void:
 	if get_state() == "grab":
+		fist.reset_action()
 		animation_state.travel("stun")
 		
 func on_suffer(amount: float) -> void: # does not actually deal the damage, just for visuals

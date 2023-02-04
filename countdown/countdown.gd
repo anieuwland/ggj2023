@@ -10,7 +10,7 @@ signal countdown_finished()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	timer.wait_time = 1
+	timer.wait_time = 0.05
 	timer.one_shot = false
 	add_child(timer)
 	timer.connect("timeout", self, "_on_timer_timeout")
