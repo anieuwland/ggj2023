@@ -91,6 +91,8 @@ func _on_fist_hit(area: Area2D) -> void:
 					
 					if not fighter == self:
 						emit_signal("deal_damage", fighter, kick_damage)
+						$impact.pitch_scale = rng.randf_range(0.5, 3.0)
+						$impact.play()
 						fighter.throw()
 		_:
 			assert(false, "Hit callback called but not in a matching state.")

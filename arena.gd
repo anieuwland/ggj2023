@@ -16,6 +16,7 @@ func _ready():
 	
 	healthbar1.connect("health_depleted", self, "on_depleted_health1")
 	healthbar2.connect("health_depleted", self, "on_depleted_health2")
+	$battle_restart_timer.connect("timeout", self, "on_battle_restart_timer")
 	
 	reset()
 	countdown.start()
@@ -24,9 +25,12 @@ func _process(delta):
 	pass
 
 func reset():
+	$battle_msg.hide()
+	
 	_enable_object(fighter1, false)
 	_enable_object(fighter2, false)
 
+	$battle_restart_timer.wait_time = 3
 	fighter1.reset()
 	fighter2.reset()
 	healthbar1.reset()
@@ -45,18 +49,25 @@ func on_fighter2_deal_damage(fighter: Node, damage: float) -> void:
 
 func on_depleted_health1():
 	wins_p2 += 1
-	_enable_object(fighter1, false)
-	_enable_object(fighter2, false)
-	$battle_msg.show()
-	on_depleted_health()
+	on_depleted_health("P2")
 
 func on_depleted_health2():
 	wins_p1 += 1
-	on_depleted_health()
+	on_depleted_health("P1")
 
-func on_depleted_health():
+func on_depleted_health(victor):
+	_enable_object(fighter1, false)
+	_enable_object(fighter2, false)
+	$battle_msg.text = "Victory " + victor
+	$battle_msg.show()
+	$announce_victory.play()
+	$battle_restart_timer.start()
+
+func on_battle_restart_timer():
+	$battle_restart_timer.stop()
 	reset()
 	countdown.start()
+	
 
 func _enable_object(object, enabledness: bool):
 	object.set_process(enabledness)
