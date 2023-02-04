@@ -15,6 +15,7 @@ var action_grab: String
 
 signal deal_damage(target, damage)
 var damage_dealt_sound = preload("res://resources/audio/impact1.wav")
+var rng = RandomNumberGenerator.new()
 
 var fist: Node
 var hit_targets: Array = []
@@ -25,6 +26,7 @@ func get_state() -> String:
 	return animation_state.get_current_node()
 
 func _ready():
+	$impact.stream = damage_dealt_sound
 	fist = get_node("character").find_node("fist")
 	fist.connect("hit", self, "_on_fist_hit")
 	fist.monitoring = false
@@ -67,7 +69,7 @@ func _on_fist_hit(area: Area2D) -> void:
 					if not fighter == self:
 						if fighter.get_state() != "block":
 							emit_signal("deal_damage", fighter, punch_damage)
-							$impact.stream = damage_dealt_sound
+							$impact.pitch_scale = rng.randf_range(0.5, 3.0)
 							$impact.play()
 							fighter.interrupt()
 		"grab":

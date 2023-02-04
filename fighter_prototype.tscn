@@ -13,3 +13,4 @@ position = Vector2( 11.5, -63 )
 shape = SubResource( 1 )
 
 [node name="impact" type="AudioStreamPlayer2D" parent="."]
+pitch_scale = 0.59
