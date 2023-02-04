@@ -804,11 +804,9 @@ rest = Transform2D( -0.998157, 0.0606828, -0.0606828, -0.998157, -3, 35 )
 
 [node name="hitbox" type="Area2D" parent="Skeleton2D/hip"]
 position = Vector2( 7.94701, 4.10427 )
-scale = Vector2( 1, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Skeleton2D/hip/hitbox"]
 position = Vector2( -7.62939e-06, 1.90735e-06 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 13 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
