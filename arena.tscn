@@ -1,20 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://fighter.tscn" type="PackedScene" id=1]
 [ext_resource path="res://health/health.tscn" type="PackedScene" id=2]
 [ext_resource path="res://arena.gd" type="Script" id=3]
 
 [node name="arena" type="Node2D"]
 position = Vector2( -2, -3 )
 script = ExtResource( 3 )
-
-[node name="fighter1" parent="." instance=ExtResource( 1 )]
-position = Vector2( -262, 0 )
-
-[node name="fighter2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 275, 0 )
-scale = Vector2( -1, 1 )
-player_id = 1
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 position = Vector2( 2, 0 )
