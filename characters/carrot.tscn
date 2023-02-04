@@ -1,8 +1,9 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://characters/veggies.png" type="Texture" id=1]
 [ext_resource path="res://characters/carrot_arms_legs.png" type="Texture" id=2]
 [ext_resource path="res://characters/faces.png" type="Texture" id=3]
+[ext_resource path="res://characters/animation.gd" type="Script" id=4]
 [ext_resource path="res://icon.png" type="Texture" id=5]
 [ext_resource path="res://fist.gd" type="Script" id=6]
 
@@ -2117,7 +2118,7 @@ states/stun/node = SubResource( 25 )
 states/stun/position = Vector2( 145, 87 )
 transitions = [ "idle", "punch", SubResource( 16 ), "punch", "idle", SubResource( 17 ), "idle", "block", SubResource( 21 ), "block", "idle", SubResource( 22 ), "idle", "stun", SubResource( 26 ), "stun", "idle", SubResource( 27 ), "idle", "grab", SubResource( 29 ), "grab", "idle", SubResource( 30 ), "idle", "kick", SubResource( 34 ), "kick", "idle", SubResource( 35 ), "grab", "stun", SubResource( 36 ), "idle", "kicked", SubResource( 38 ), "kicked", "idle", SubResource( 39 ), "grab", "kick", SubResource( 40 ), "idle", "grabbed", SubResource( 42 ), "grabbed", "kicked", SubResource( 43 ), "grab", "grabbed", SubResource( 44 ), "punch", "grabbed", SubResource( 45 ), "stun", "grabbed", SubResource( 46 ), "block", "grabbed", SubResource( 47 ), "punch", "stun", SubResource( 48 ), "block", "dummy", SubResource( 50 ), "dummy", "idle", SubResource( 51 ) ]
 start_node = "idle"
-graph_offset = Vector2( -146, -70 )
+graph_offset = Vector2( -169, -28 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=10]
 
@@ -2173,7 +2174,7 @@ position = Vector2( 0, -29 )
 rotation = 0.00390159
 
 [node name="hip" type="Bone2D" parent="Skeleton2D"]
-position = Vector2( 16.2732, -85.4721 )
+position = Vector2( 19.5394, -81.5527 )
 rotation = -1.58387
 rest = Transform2D( -0.0130766, -0.999915, 0.999915, -0.0130766, 15, -87 )
 
@@ -2184,7 +2185,7 @@ rest = Transform2D( 1, 0, 0, 1, 63.3607, -27.1738 )
 
 [node name="arm_r_1" type="Bone2D" parent="Skeleton2D/hip"]
 position = Vector2( 51.6625, -50.3287 )
-rotation = 0.32708
+rotation = 0.137188
 scale = Vector2( 0.292663, 0.292663 )
 rest = Transform2D( 0.288516, 0.0490949, -0.0490949, 0.288516, 51.6625, -50.3287 )
 __meta__ = {
@@ -2193,7 +2194,7 @@ __meta__ = {
 
 [node name="arm_r_2" type="Bone2D" parent="Skeleton2D/hip/arm_r_1"]
 position = Vector2( -109.736, -38.1381 )
-rotation = 2.535
+rotation = 2.66704
 scale = Vector2( 0.292663, 0.292663 )
 rest = Transform2D( -0.257346, 0.139373, -0.139373, -0.257346, -109.736, -38.1381 )
 
@@ -2216,13 +2217,13 @@ texture = ExtResource( 5 )
 
 [node name="arm_l_1" type="Bone2D" parent="Skeleton2D/hip"]
 position = Vector2( 48.8781, 9.63998 )
-rotation = 0.306701
+rotation = 0.451421
 scale = Vector2( 0.292663, 0.292663 )
 rest = Transform2D( 0.266322, 0.121343, -0.121343, 0.266322, 48.8781, 9.63998 )
 
 [node name="arm_l_2" type="Bone2D" parent="Skeleton2D/hip/arm_l_1"]
 position = Vector2( -118.85, 52.2849 )
-rotation = 2.25516
+rotation = 1.93083
 scale = Vector2( 0.292663, 0.292663 )
 rest = Transform2D( -0.117621, 0.267987, -0.267987, -0.117621, -118.85, 52.2849 )
 
@@ -2233,23 +2234,23 @@ rest = Transform2D( 0.292663, 0, 0, 0.292663, -418.895, 59.1855 )
 
 [node name="leg_l_1" type="Bone2D" parent="Skeleton2D/hip"]
 position = Vector2( -44.8523, -11.5875 )
-rotation = 1.64016
+rotation = 1.78455
 rest = Transform2D( -0.0130766, 0.999915, -0.999915, -0.0130766, -44.8523, -11.5875 )
 
 [node name="leg_l_2" type="Bone2D" parent="Skeleton2D/hip/leg_l_1"]
 position = Vector2( -14, 29 )
-rotation = -0.0738229
+rotation = -0.263203
 rest = Transform2D( 1, 0, 0, 1, -14, 29 )
 
 [node name="leg_l_3" type="Bone2D" parent="Skeleton2D/hip/leg_l_1/leg_l_2"]
 position = Vector2( 22, 39 )
-rotation = -3.10478
+rotation = -3.09788
 scale = Vector2( 0.999999, 0.999999 )
 rest = Transform2D( -0.999417, -0.0341226, 0.0341226, -0.999417, 22, 39 )
 
 [node name="leg_r_1" type="Bone2D" parent="Skeleton2D/hip"]
 position = Vector2( -49.4334, -43.6501 )
-rotation = 1.56284
+rotation = 1.72744
 rest = Transform2D( -0.0130766, 0.999915, -0.999915, -0.0130766, -49.4334, -43.6501 )
 __meta__ = {
 "_edit_ik_": true
@@ -2257,12 +2258,12 @@ __meta__ = {
 
 [node name="leg_r_2" type="Bone2D" parent="Skeleton2D/hip/leg_r_1"]
 position = Vector2( -26, 23 )
-rotation = -0.966631
+rotation = -1.18324
 rest = Transform2D( 1, 0, 0, 1, -26, 23 )
 
 [node name="leg_r_3" type="Bone2D" parent="Skeleton2D/hip/leg_r_1/leg_r_2"]
 position = Vector2( -28.9642, 23.3237 )
-rotation = -2.14039
+rotation = -2.13364
 rest = Transform2D( -0.668325, -0.743869, 0.743869, -0.668325, -28.9642, 23.3237 )
 
 [node name="hitbox" type="Area2D" parent="Skeleton2D/hip"]
@@ -2288,6 +2289,7 @@ tree_root = SubResource( 9 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 10 )
+script = ExtResource( 4 )
 
 [node name="arm_l" type="Polygon2D" parent="."]
 position = Vector2( 217, -260 )

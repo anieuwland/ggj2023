@@ -23,8 +23,8 @@ func reset_action() -> void:
 	monitoring = false
 
 func _damage_frame(enabled: bool) -> void:
-	smileface.visible = not enabled
-	happyface.visible = enabled
+#	smileface.visible = not enabled
+#	happyface.visible = enabled
 	if enabled:
 		monitoring = true
 		action_active = true

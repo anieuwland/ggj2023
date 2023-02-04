@@ -17,14 +17,21 @@ signal deal_damage(target, damage)
 var damage_dealt_sound = preload("res://resources/audio/impact1.wav")
 var rng = RandomNumberGenerator.new()
 
-onready var juice_center: Node = get_node("character").find_node("juice_center")
-onready var fist: Node = get_node("character").find_node("fist")
+onready var character: Node2D = get_node("character")
+onready var juice_center: Node2D = character.find_node("juice_center")
+onready var fist: Node2D = character.find_node("fist")
+onready var smileface: Node2D = character.find_node("smileface")
+onready var happyface: Node2D = character.find_node("happyface")
+onready var cryface: Node2D = character.find_node("cryface")
 var hit_targets: Array = []
+
+enum EMOTION {smile, happy, cry}
+export(EMOTION) var emotion = EMOTION.smile setget _on_emotion_set
 
 var init_position
 var init_transform 
 
-onready var animation_state = get_node("character").find_node("animation")["parameters/playback"]
+onready var animation_state = get_node("character").find_node("animation")
 
 const juice_scene = preload("res://juice.tscn")
 const juice_big_scene = preload("res://juice_big.tscn")
@@ -42,6 +49,7 @@ func reset():
 
 func _ready():
 	$impact.stream = damage_dealt_sound
+	animation_state.connect("animation_changed", self, "_on_animation_changed")
 
 	fist.connect("hit", self, "_on_fist_hit")
 	fist.connect("kick", self, "_on_kick")
@@ -63,7 +71,7 @@ func _ready():
 	else:
 		assert(false, "Invalid player_id")
 		
-func _process(_delta):	
+func _process(_delta):
 	match get_state():
 		"dummy":
 			animation_state.travel("idle")
@@ -76,7 +84,7 @@ func _process(_delta):
 			elif Input.is_action_just_pressed(action_grab):
 				hit_targets.clear()
 				animation_state.travel("grab")
-				
+
 func _on_fist_hit(area: Area2D) -> void:
 	match get_state():
 		"punch":
@@ -159,3 +167,18 @@ func on_suffer(amount: float) -> void: # does not actually deal the damage, just
 		juice_big.emitting = true
 	else:
 		assert("No animation for that amount of damage.")
+
+func _on_emotion_set(emotion) -> void:
+	smileface.visible = emotion == EMOTION.smile
+	happyface.visible = emotion == EMOTION.happy
+	cryface.visible = emotion == EMOTION.cry
+
+func _on_animation_changed(old_anim: String, new_anim: String) -> void:
+	match new_anim:
+		"grabbed", "stun", "kicked":
+			self.emotion = EMOTION.cry
+		"punch", "grab":
+			self.emotion = EMOTION.happy
+		_:
+			self.emotion = EMOTION.smile
+	print(self, "Animation changed, ", old_anim, " -> ", new_anim)
