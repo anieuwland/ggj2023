@@ -19,7 +19,7 @@ scale = Vector2( 1000, 1 )
 polygon = PoolVector2Array( 1, 1, 1, -1, -1, -1, -1, 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 1, -300 )
+position = Vector2( 0, -300 )
 current = true
 
 [node name="healthbar1" parent="." instance=ExtResource( 2 )]
