@@ -12,6 +12,7 @@ var action_right: String
 var action_hit: String
 var action_block: String
 var action_grab: String
+var controller_id: int
 
 signal deal_damage(target, damage)
 var damage_dealt_sound = preload("res://resources/audio/impact1.wav")
@@ -50,24 +51,29 @@ func reset():
 func _ready():
 	$impact.stream = damage_dealt_sound
 	animation_state.connect("animation_changed", self, "_on_animation_changed")
+	self.connect("deal_damage", self, "_on_deal_damage")
 
 	fist.connect("hit", self, "_on_fist_hit")
 	fist.connect("kick", self, "_on_kick")
 	fist.monitoring = false
 	init_transform = self.transform
 	
+	var gamepads : Array = Input.get_connected_joypads()
+	print("gamepads:", gamepads)
 	if player_id == 0:
 		action_left = "player1_left"
 		action_right = "player1_right"
 		action_hit = "player1_hit"
 		action_block = "player1_block"
 		action_grab = "player1_grab"
+		controller_id = 0
 	elif player_id == 1:
 		action_left = "player2_left"
 		action_right = "player2_right"
 		action_hit = "player2_hit"
 		action_block = "player2_block"
 		action_grab = "player2_grab"
+		controller_id = 1
 	else:
 		assert(false, "Invalid player_id")
 		
@@ -177,8 +183,12 @@ func _on_animation_changed(old_anim: String, new_anim: String) -> void:
 	match new_anim:
 		"grabbed", "stun", "kicked":
 			self.emotion = EMOTION.cry
+			Input.start_joy_vibration(controller_id, 1, 0, 1)
 		"punch", "grab":
 			self.emotion = EMOTION.happy
 		_:
 			self.emotion = EMOTION.smile
-	print(self, "Animation changed, ", old_anim, " -> ", new_anim)
+
+func _on_deal_damage(target, damage) -> void:
+	Input.start_joy_vibration(controller_id, 0, 1, 0.15)
+	Input.start_joy_vibration(target.controller_id, 1, 1, damage/50.0)
