@@ -96,14 +96,18 @@ func onFightButtonPressed():
 	var fighter2 = fighter_prototype.instance()
 	var character1 = player1.duplicate()
 	var character2 = player2.duplicate()
+	character1.transform = Transform2D.IDENTITY
+	character2.transform = Transform2D.IDENTITY
 	character1.name = "character"
 	character2.name = "character"
-	fighter1.add_child(character1)
-	fighter2.add_child(character2)
 	fighter1.name = "fighter1"
 	fighter2.name = "fighter2"
-	fighter1.translate(Vector2(200, 200))
-	fighter2.translate(Vector2(400, 200))
+	fighter1.add_child(character1)
+	fighter2.add_child(character2)
+	fighter1.translate(arena.find_node("player1_spawn").position)
+	fighter2.translate(arena.find_node("player2_spawn").position)
+	fighter1.player_id = 0
+	fighter2.player_id = 1
 	
 	arena.add_child(fighter1)
 	arena.add_child(fighter2)
