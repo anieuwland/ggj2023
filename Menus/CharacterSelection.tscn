@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://characters/beetroot.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Menus/CharacterSelection.gd" type="Script" id=2]
 [ext_resource path="res://characters/carrot.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Menus/assets/selector_none.jpg" type="Texture" id=4]
+[ext_resource path="res://characters/parsnip.tscn" type="PackedScene" id=5]
+[ext_resource path="res://characters/raddish.tscn" type="PackedScene" id=6]
 
 [node name="Root" type="CenterContainer"]
 anchor_right = 1.0
@@ -92,7 +94,7 @@ expand = true
 
 [node name="Beetroot" parent="VBoxContainer/Characters/Character1" instance=ExtResource( 1 )]
 position = Vector2( 91, 185 )
-scale = Vector2( 0.7, 0.7 )
+scale = Vector2( 0.610897, 0.610897 )
 
 [node name="VSeparator" type="VSeparator" parent="VBoxContainer/Characters"]
 modulate = Color( 1, 1, 1, 0 )
@@ -138,8 +140,9 @@ anchor_bottom = 1.0
 texture = ExtResource( 4 )
 expand = true
 
-[node name="Beetroot" parent="VBoxContainer/Characters/Character3" instance=ExtResource( 1 )]
-position = Vector2( 63, 225 )
+[node name="Parsnip" parent="VBoxContainer/Characters/Character3" instance=ExtResource( 5 )]
+position = Vector2( 104, 188 )
+scale = Vector2( 0.582177, 0.582177 )
 
 [node name="VSeparator3" type="VSeparator" parent="VBoxContainer/Characters"]
 modulate = Color( 1, 1, 1, 0 )
@@ -161,8 +164,9 @@ anchor_bottom = 1.0
 texture = ExtResource( 4 )
 expand = true
 
-[node name="Beetroot" parent="VBoxContainer/Characters/Character4" instance=ExtResource( 1 )]
-position = Vector2( 112, 194 )
+[node name="Beetroot" parent="VBoxContainer/Characters/Character4" instance=ExtResource( 6 )]
+position = Vector2( 83, 180 )
+scale = Vector2( 0.512472, 0.512472 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 

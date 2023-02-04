@@ -1229,7 +1229,7 @@ graph_offset = Vector2( 109, 11 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=10]
 
-[node name="Beetroot" type="Node2D"]
+[node name="Raddish" type="Node2D"]
 
 [node name="visuals" type="Node2D" parent="."]
 position = Vector2( 0, -29 )
