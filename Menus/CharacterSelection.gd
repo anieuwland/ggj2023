@@ -44,7 +44,7 @@ func _ready():
 	characters.append(find_node("Character3").get_child(1))
 	characters.append(find_node("Character4").get_child(1))
 	update_player1(0)
-	update_player2(0)
+	update_player2(3)
 	$AudioStreamPlayer2D.stream = char_select_sound
 	$AudioStreamPlayer2D.play()
 
