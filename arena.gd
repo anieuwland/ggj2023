@@ -1,8 +1,5 @@
 extends Node2D
 
-# 1 lock objects
-# 2 play animation
-# 3 unlock objects
  
 onready var healthbar1 = get_node("healthbar1")
 onready var healthbar2 = get_node("healthbar2")

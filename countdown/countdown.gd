@@ -3,7 +3,8 @@ extends Label
 
 # Declare member variables here. Examples:
 var timer := Timer.new()
-var count_down = 3
+var countdown = 3
+var countdown_sound = preload("res://resources/audio/countdown.wav")
 
 signal countdown_finished()
 
@@ -13,14 +14,16 @@ func _ready():
 	timer.one_shot = false
 	add_child(timer)
 	timer.connect("timeout", self, "_on_timer_timeout")
-	set_count_down_text(str(count_down))
+	set_count_down_text(str(countdown))
+	$AudioStreamPlayer2D.stream = countdown_sound
 	timer.start()
+	$AudioStreamPlayer2D.play()
 
 func _on_timer_timeout():
-	count_down -= 1
-	var text = str(count_down) if count_down > 0 else "BLEND!"
+	countdown -= 1
+	var text = str(countdown) if countdown > 0 else "BLEND!"
 	set_count_down_text(text)
-	if count_down <= -1:
+	if countdown <= -1:
 		timer.stop()
 		self.hide()
 		emit_signal("countdown_finished")
