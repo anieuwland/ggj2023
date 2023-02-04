@@ -106,7 +106,12 @@ func _on_fist_hit(area: Area2D) -> void:
 
 func _physics_process(delta):
 	if get_state() == "kicked":
-		move_and_collide(Vector2(delta * throw_speed, 0))
+		var dir
+		if player_id == 0:
+			dir = -1.0
+		else:
+			dir = 1.0
+		move_and_collide(Vector2(dir * delta * throw_speed, 0))
 	elif get_state() != "stun" and get_state() != "grabbed" and get_state() != "kicked":
 		var velocity = 0.0
 		
