@@ -8,19 +8,23 @@ extends CenterContainer
 var player1_character = 0
 var player2_character = 3
 var characters = []
+var player1: Node = null
+var player2: Node = null
 
 
 func update_player1():
 		var n = find_node("Player1")
 		while n.get_child_count() > 0:
 			n.remove_child(n.get_child(0))
-		n.add_child(characters[player1_character].duplicate())
+		player1 = characters[player1_character].duplicate()
+		n.add_child(player1)
 
 func update_player2():
 		var n = find_node("Player2")
 		while n.get_child_count() > 0:
 			n.remove_child(n.get_child(0))
-		n.add_child(characters[player2_character].duplicate())
+		player2 = characters[player2_character].duplicate()
+		n.add_child(player2)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -85,6 +89,29 @@ func _process(delta):
 
 
 func onFightButtonPressed():
-	get_tree().change_scene("res://arena.tscn")
+	
+	var arena = preload("res://arena.tscn").instance()
+	var fighter_prototype = preload("res://fighter_prototype.tscn")
+	var fighter1 = fighter_prototype.instance()
+	var fighter2 = fighter_prototype.instance()
+	var character1 = player1.duplicate()
+	var character2 = player2.duplicate()
+	character1.name = "character"
+	character2.name = "character"
+	fighter1.add_child(character1)
+	fighter2.add_child(character2)
+	fighter1.name = "fighter1"
+	fighter2.name = "fighter2"
+	fighter1.translate(Vector2(200, 200))
+	fighter2.translate(Vector2(400, 200))
+	
+	arena.add_child(fighter1)
+	arena.add_child(fighter2)
+	var game_node = get_node("/root/Game")
+	game_node.change_scene_to_node(arena)
+
+	#get_tree().change_scene()
+	
+	#get_tree().change_scene("res://arena.tscn")
 
 	pass # Replace with function body.

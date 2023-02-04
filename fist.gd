@@ -15,3 +15,6 @@ func _damage_frame(enabled: bool) -> void:
 		monitoring = true
 	else:
 		monitoring = false
+
+func _block_frame(enabled: bool) -> void:
+	$Sprite.visible = enabled

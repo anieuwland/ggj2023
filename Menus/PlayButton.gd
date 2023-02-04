@@ -17,4 +17,5 @@ func _ready():
 
 
 func onPressed():
-	get_tree().change_scene("res://Menus/CharacterSelection.tscn")
+	var game_node = get_node("/root/Game")
+	game_node.change_scene("res://Menus/CharacterSelection.tscn")
