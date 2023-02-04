@@ -14,8 +14,15 @@ func _ready():
 	timer.one_shot = false
 	add_child(timer)
 	timer.connect("timeout", self, "_on_timer_timeout")
-	set_count_down_text(str(countdown))
 	$AudioStreamPlayer2D.stream = countdown_sound
+	reset()
+
+func reset():
+	countdown = 3
+	set_count_down_text(str(countdown))
+	self.show()
+	
+func start():
 	timer.start()
 	$AudioStreamPlayer2D.play()
 
