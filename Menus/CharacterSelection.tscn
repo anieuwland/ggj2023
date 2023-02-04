@@ -92,9 +92,9 @@ anchor_bottom = 1.0
 texture = ExtResource( 4 )
 expand = true
 
-[node name="Beetroot" parent="VBoxContainer/Characters/Character1" instance=ExtResource( 1 )]
-position = Vector2( 91, 185 )
-scale = Vector2( 0.610897, 0.610897 )
+[node name="Carrot" parent="VBoxContainer/Characters/Character1" instance=ExtResource( 3 )]
+position = Vector2( 114, 194 )
+scale = Vector2( 0.5, 0.5 )
 
 [node name="VSeparator" type="VSeparator" parent="VBoxContainer/Characters"]
 modulate = Color( 1, 1, 1, 0 )
@@ -116,9 +116,9 @@ anchor_bottom = 1.0
 texture = ExtResource( 4 )
 expand = true
 
-[node name="Carrot" parent="VBoxContainer/Characters/Character2" instance=ExtResource( 3 )]
-position = Vector2( 89, 188 )
-scale = Vector2( 0.5, 0.5 )
+[node name="Beetroot" parent="VBoxContainer/Characters/Character2" instance=ExtResource( 1 )]
+position = Vector2( 85, 188 )
+scale = Vector2( 0.610897, 0.610897 )
 
 [node name="VSeparator2" type="VSeparator" parent="VBoxContainer/Characters"]
 modulate = Color( 1, 1, 1, 0 )
