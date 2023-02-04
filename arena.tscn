@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
+[ext_resource path="res://countdown/countdown.tscn" type="PackedScene" id=1]
 [ext_resource path="res://health/health.tscn" type="PackedScene" id=2]
 [ext_resource path="res://arena.gd" type="Script" id=3]
 
@@ -27,3 +28,9 @@ margin_left = 423.0
 margin_top = -587.0
 margin_right = 497.0
 margin_bottom = -573.0
+
+[node name="countdown" parent="." instance=ExtResource( 1 )]
+margin_left = -509.0
+margin_top = -595.0
+margin_right = 512.0
+margin_bottom = -365.0

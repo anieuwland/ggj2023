@@ -1,5 +1,18 @@
-[gd_scene format=2]
+[gd_scene load_steps=4 format=2]
 
-[node name="RichTextLabel" type="RichTextLabel"]
-margin_right = 40.0
-margin_bottom = 40.0
+[ext_resource path="res://countdown/countdown.gd" type="Script" id=1]
+[ext_resource path="res://TitanOne-Regular.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 200
+font_data = ExtResource( 2 )
+
+[node name="Label" type="Label"]
+margin_right = 1019.0
+margin_bottom = 599.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+align = 1
+script = ExtResource( 1 )
