@@ -1179,19 +1179,18 @@ position = Vector2( 0, -29 )
 rotation = 0.00390159
 
 [node name="hip" type="Bone2D" parent="Skeleton2D"]
-position = Vector2( 15, -87 )
+position = Vector2( 17.6303, -83.8436 )
 rotation = -1.58387
 scale = Vector2( 1, 1 )
 rest = Transform2D( -0.0130766, -0.999915, 0.999915, -0.0130766, 15, -87 )
 
 [node name="face" type="Bone2D" parent="Skeleton2D/hip"]
-position = Vector2( 23.1026, -7.69854 )
-scale = Vector2( 1, 0.678981 )
+position = Vector2( 63.3607, -27.1738 )
 rest = Transform2D( 1, 0, 0, 1, 63.3607, -27.1738 )
 
 [node name="arm_r_1" type="Bone2D" parent="Skeleton2D/hip"]
-position = Vector2( 2.60136, -45.9699 )
-rotation = -1.33651
+position = Vector2( 51.6625, -50.3287 )
+rotation = 0.24818
 scale = Vector2( 0.292663, 0.292663 )
 rest = Transform2D( 0.288516, 0.0490949, -0.0490949, 0.288516, 51.6625, -50.3287 )
 __meta__ = {
@@ -1199,13 +1198,13 @@ __meta__ = {
 }
 
 [node name="arm_r_2" type="Bone2D" parent="Skeleton2D/hip/arm_r_1"]
-position = Vector2( -170.845, -13.6676 )
-rotation = 2.48353
+position = Vector2( -109.736, -38.1381 )
+rotation = 2.58987
 scale = Vector2( 0.292663, 0.292663 )
 rest = Transform2D( -0.257346, 0.139373, -0.139373, -0.257346, -109.736, -38.1381 )
 
 [node name="arm_r_3" type="Bone2D" parent="Skeleton2D/hip/arm_r_1/arm_r_2"]
-position = Vector2( -537.059, -11.675 )
+position = Vector2( -466.753, -116.02 )
 scale = Vector2( 0.292663, 0.292663 )
 rest = Transform2D( 0.292663, 0, 0, 0.292663, -466.753, -116.02 )
 
@@ -1222,41 +1221,42 @@ scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 5 )
 
 [node name="arm_l_1" type="Bone2D" parent="Skeleton2D/hip"]
-position = Vector2( -10.0645, 4.8688 )
-rotation = -1.25973
+position = Vector2( 48.8781, 9.63998 )
+rotation = 0.366832
 scale = Vector2( 0.292663, 0.292663 )
 rest = Transform2D( 0.266322, 0.121343, -0.121343, 0.266322, 48.8781, 9.63998 )
 
 [node name="arm_l_2" type="Bone2D" parent="Skeleton2D/hip/arm_l_1"]
-position = Vector2( -170.845, -13.6676 )
-rotation = 1.83664
+position = Vector2( -118.85, 52.2849 )
+rotation = 2.1204
 scale = Vector2( 0.292663, 0.292663 )
 rest = Transform2D( -0.117621, 0.267987, -0.267987, -0.117621, -118.85, 52.2849 )
 
 [node name="arm_l_3" type="Bone2D" parent="Skeleton2D/hip/arm_l_1/arm_l_2"]
-position = Vector2( -537.059, -11.675 )
+position = Vector2( -418.895, 59.1855 )
 scale = Vector2( 0.292663, 0.292663 )
 rest = Transform2D( 0.292663, 0, 0, 0.292663, -418.895, 59.1855 )
 
 [node name="leg_l_1" type="Bone2D" parent="Skeleton2D/hip"]
 position = Vector2( -44.8523, -11.5875 )
-rotation = 1.58387
+rotation = 1.70016
 scale = Vector2( 1, 1 )
 rest = Transform2D( -0.0130766, 0.999915, -0.999915, -0.0130766, -44.8523, -11.5875 )
 
 [node name="leg_l_2" type="Bone2D" parent="Skeleton2D/hip/leg_l_1"]
 position = Vector2( -14, 29 )
+rotation = -0.15251
 rest = Transform2D( 1, 0, 0, 1, -14, 29 )
 
 [node name="leg_l_3" type="Bone2D" parent="Skeleton2D/hip/leg_l_1/leg_l_2"]
 position = Vector2( 22, 39 )
-rotation = 1.13735
+rotation = -3.10192
 scale = Vector2( 0.999999, 0.999999 )
 rest = Transform2D( -0.999417, -0.0341226, 0.0341226, -0.999417, 22, 39 )
 
 [node name="leg_r_1" type="Bone2D" parent="Skeleton2D/hip"]
 position = Vector2( -49.4334, -43.6501 )
-rotation = 1.58387
+rotation = 1.63123
 scale = Vector2( 1, 1 )
 rest = Transform2D( -0.0130766, 0.999915, -0.999915, -0.0130766, -49.4334, -43.6501 )
 __meta__ = {
@@ -1265,11 +1265,12 @@ __meta__ = {
 
 [node name="leg_r_2" type="Bone2D" parent="Skeleton2D/hip/leg_r_1"]
 position = Vector2( -26, 23 )
+rotation = -1.05663
 rest = Transform2D( 1, 0, 0, 1, -26, 23 )
 
 [node name="leg_r_3" type="Bone2D" parent="Skeleton2D/hip/leg_r_1/leg_r_2"]
 position = Vector2( -28.9642, 23.3237 )
-rotation = 3.08087
+rotation = -2.13758
 scale = Vector2( 1, 1 )
 rest = Transform2D( -0.668325, -0.743869, 0.743869, -0.668325, -28.9642, 23.3237 )
 
@@ -1291,6 +1292,7 @@ anims/punch = SubResource( 14 )
 [node name="animation" type="AnimationTree" parent="."]
 tree_root = SubResource( 9 )
 anim_player = NodePath("../AnimationPlayer")
+active = true
 parameters/playback = SubResource( 10 )
 
 [node name="arm_l" type="Polygon2D" parent="."]
