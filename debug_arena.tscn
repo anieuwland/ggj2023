@@ -8,9 +8,9 @@
 [node name="arena" parent="." instance=ExtResource( 1 )]
 
 [node name="fighter1" parent="arena" instance=ExtResource( 2 )]
-position = Vector2( -240, -1 )
+position = Vector2( -245, -246 )
 scale = Vector2( -1, 1 )
 
 [node name="fighter2" parent="arena" instance=ExtResource( 2 )]
-position = Vector2( 225, -1 )
+position = Vector2( 220, -246 )
 player_id = 1
