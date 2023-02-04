@@ -49,5 +49,6 @@ func _grab_frame(enabled: bool) -> void:
 		action_active = false
 		
 func _kick_frame(enabled: bool) -> void:
-	reset_action()
-	emit_signal("kick")
+	if enabled:
+		reset_action()
+		emit_signal("kick")
