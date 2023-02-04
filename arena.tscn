@@ -18,18 +18,19 @@ position = Vector2( 1, -300 )
 current = true
 
 [node name="healthbar1" parent="." instance=ExtResource( 2 )]
-margin_left = -501.0
+margin_left = -495.0
 margin_top = -587.0
-margin_right = -427.0
-margin_bottom = -573.0
+margin_right = -12.0
+margin_bottom = -559.0
 
 [node name="healthbar2" parent="." instance=ExtResource( 2 )]
-margin_left = 423.0
+margin_left = 17.0
 margin_top = -587.0
-margin_right = 497.0
-margin_bottom = -573.0
+margin_right = 500.0
+margin_bottom = -559.0
 
 [node name="countdown" parent="." instance=ExtResource( 1 )]
+visible = false
 margin_left = -509.0
 margin_top = -595.0
 margin_right = 512.0
