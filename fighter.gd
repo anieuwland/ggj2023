@@ -18,6 +18,9 @@ var hit_targets: Array = []
 
 onready var animation_state = get_node("character").find_node("animation")["parameters/playback"]
 
+func get_state() -> String:
+	return animation_state.get_current_node()
+
 func _ready():
 	fist = get_node("character").find_node("fist")
 	fist.connect("hit", self, "_on_fist_hit")
@@ -39,7 +42,7 @@ func _ready():
 		assert(false, "Invalid player_id")
 		
 func _process(_delta):
-	match animation_state.get_current_node():
+	match get_state():
 		"idle":
 			if Input.is_action_just_pressed(action_hit):
 				hit_targets.clear()
@@ -47,16 +50,29 @@ func _process(_delta):
 			elif Input.is_action_just_pressed(action_block):
 				animation_state.travel("block")
 			elif Input.is_action_just_pressed(action_grab):
+				hit_targets.clear()
 				animation_state.travel("grab")
 				
 func _on_fist_hit(area: Area2D) -> void:
-	match animation_state.get_current_node():
+	match get_state():
 		"punch":
-			if not hit_targets.has(area):
-				if area.name == "hitbox":
-					var fighter = area.owner.get_parent()
-					emit_signal("deal_damage", fighter, 10)
+			if area.name == "hitbox":
+				var fighter = area.owner.get_parent()
+				if not hit_targets.has(fighter):
 					hit_targets.append(fighter)
+					
+					if not fighter == self:
+						if fighter.get_state() != "block":
+							emit_signal("deal_damage", fighter, 10)
+						else:
+							print("block!")
+		"grab":
+			if area.name == "hitbox":
+				var fighter = area.owner.get_parent()
+				if not hit_targets.has(fighter):
+					hit_targets.append(fighter)
+					print("grab!")
+					#emit_signal("deal_damage", fighter, 10)
 		_:
 			assert(false, "Hit callback called but not in a matching state.")
 
