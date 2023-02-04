@@ -139,4 +139,6 @@ rect_clip_content = true
 [node name="Beetroot" parent="VBoxContainer/Characters/Character4" instance=ExtResource( 1 )]
 position = Vector2( 112, 194 )
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
 [connection signal="pressed" from="VBoxContainer/Players/Button" to="." method="onFightButtonPressed"]

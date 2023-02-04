@@ -1,15 +1,13 @@
 extends CenterContainer
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
 var player1_character = 0
 var player2_character = 3
 var characters = []
 var player1: Node = null
 var player2: Node = null
+
+var char_select_sound = preload("res://resources/audio/charselect.wav")
 
 
 func update_player1():
@@ -35,12 +33,12 @@ func _ready():
 	characters.append(find_node("Character4").get_child(0))
 	update_player1()
 	update_player2()
-	pass # Replace with function body.
+	$AudioStreamPlayer2D.stream = char_select_sound
+	$AudioStreamPlayer2D.play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
 	if Input.is_action_just_pressed("player1_left"):
 		var initial_value = player1_character
 		player1_character -= 1
@@ -80,16 +78,8 @@ func _process(delta):
 			player2_character = initial_value
 		else:
 			update_player2()
-	
-	
-	
-	#print(player1_character, player2_character)
-	
-	pass
-
 
 func onFightButtonPressed():
-	
 	var arena = preload("res://arena.tscn").instance()
 	var fighter_prototype = preload("res://fighter_prototype.tscn")
 	var fighter1 = fighter_prototype.instance()
@@ -114,9 +104,3 @@ func onFightButtonPressed():
 	arena.add_child(fighter2)
 	var game_node = get_node("/root/Game")
 	game_node.change_scene_to_node(arena)
-
-	#get_tree().change_scene()
-	
-	#get_tree().change_scene("res://arena.tscn")
-
-	pass # Replace with function body.
