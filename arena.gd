@@ -21,12 +21,12 @@ func _ready():
 	_enable_object(fighter2, true)
 	
 
-func on_fighter1_deal_damage(body: Node, damage: float) -> void:
-	if body.name == "fighter2":
+func on_fighter1_deal_damage(fighter: Node, damage: float) -> void:
+	if fighter.name == "fighter2":
 		healthbar2.suffer(damage)
 
-func on_fighter2_deal_damage(body: Node, damage: float) -> void:
-	if body.name == "fighter1":
+func on_fighter2_deal_damage(fighter: Node, damage: float) -> void:
+	if fighter.name == "fighter1":
 		healthbar1.suffer(damage)
 
 func _enable_object(object, enabledness: bool):

@@ -9,6 +9,7 @@
 
 [node name="fighter1" parent="arena" instance=ExtResource( 2 )]
 position = Vector2( -240, -1 )
+scale = Vector2( -1, 1 )
 
 [node name="fighter2" parent="arena" instance=ExtResource( 2 )]
 position = Vector2( 225, -1 )

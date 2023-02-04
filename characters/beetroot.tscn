@@ -731,13 +731,13 @@ rest = Transform2D( 0.999894, 0.0145567, -0.0145567, 0.999894, 39.0098, -0.48992
 
 [node name="arm_r_1" type="Bone2D" parent="Skeleton2D/hip"]
 position = Vector2( 2.60136, -45.9699 )
-rotation = 0.323423
+rotation = -1.33651
 scale = Vector2( 0.292663, 0.292663 )
 rest = Transform2D( -0.00382703, 0.292638, -0.292638, -0.00382703, 2.60136, -45.9699 )
 
 [node name="arm_r_2" type="Bone2D" parent="Skeleton2D/hip/arm_r_1"]
 position = Vector2( -170.845, -13.6676 )
-rotation = 2.53755
+rotation = 2.48353
 scale = Vector2( 0.292663, 0.292663 )
 rest = Transform2D( 0.292663, 0, 0, 0.292663, -170.845, -13.6676 )
 
@@ -760,13 +760,13 @@ texture = ExtResource( 5 )
 
 [node name="arm_l_1" type="Bone2D" parent="Skeleton2D/hip"]
 position = Vector2( -23.5865, 44.6954 )
-rotation = 0.309488
+rotation = -1.25973
 scale = Vector2( 0.292663, 0.292663 )
 rest = Transform2D( -0.00382703, 0.292638, -0.292638, -0.00382703, -23.5865, 44.6954 )
 
 [node name="arm_l_2" type="Bone2D" parent="Skeleton2D/hip/arm_l_1"]
 position = Vector2( -170.845, -13.6676 )
-rotation = 2.24892
+rotation = 1.83664
 scale = Vector2( 0.292663, 0.292663 )
 rest = Transform2D( 0.292663, 0, 0, 0.292663, -170.845, -13.6676 )
 
@@ -802,8 +802,13 @@ position = Vector2( -3, 35 )
 rotation = 3.08087
 rest = Transform2D( -0.998157, 0.0606828, -0.0606828, -0.998157, -3, 35 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Skeleton2D/hip"]
+[node name="hitbox" type="Area2D" parent="Skeleton2D/hip"]
 position = Vector2( 7.94701, 4.10427 )
+scale = Vector2( 1, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Skeleton2D/hip/hitbox"]
+position = Vector2( -7.62939e-06, 1.90735e-06 )
+scale = Vector2( 1, 1 )
 shape = SubResource( 13 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
