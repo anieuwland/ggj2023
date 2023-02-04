@@ -20,16 +20,23 @@ var rng = RandomNumberGenerator.new()
 var fist: Node
 var hit_targets: Array = []
 
+var init_position
+var init_transform 
+
 onready var animation_state = get_node("character").find_node("animation")["parameters/playback"]
 
 func get_state() -> String:
 	return animation_state.get_current_node()
+	
+func reset():
+	self.transform = init_transform
 
 func _ready():
 	$impact.stream = damage_dealt_sound
 	fist = get_node("character").find_node("fist")
 	fist.connect("hit", self, "_on_fist_hit")
 	fist.monitoring = false
+	init_transform = self.transform
 	
 	if player_id == 0:
 		action_left = "player1_left"
