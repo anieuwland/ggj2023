@@ -1,19 +1,17 @@
 extends Area2D
 
+signal hit(area)
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	connect("area_entered", self, "_on_area_entered")
+	monitoring = false
 
+func _on_area_entered(area: Area2D) -> void:
+	emit_signal("hit", area)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-func _damage_frame(enabled: bool):
+func _damage_frame(enabled: bool) -> void:
 	$Sprite.visible = enabled
+	if enabled:
+		monitoring = true
+	else:
+		monitoring = false
