@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://background/assets/blender_full.png" type="Texture" id=1]
 [ext_resource path="res://background/assets/blender_bottom.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://background/assets/crowd.png" type="Texture" id=9]
 [ext_resource path="res://background/assets/care-root-lady.png" type="Texture" id=10]
 [ext_resource path="res://background/assets/kitchen_small.jpg" type="Texture" id=11]
+[ext_resource path="res://resources/audio/pour.mp3" type="AudioStream" id=12]
 
 [node name="Background" type="Node2D"]
 script = ExtResource( 3 )
@@ -100,3 +101,8 @@ position = Vector2( 513, 55 )
 scale = Vector2( 0.288734, 0.288734 )
 z_index = -400
 texture = ExtResource( 11 )
+
+[node name="poursound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+volume_db = 13.333
+pitch_scale = 0.49
