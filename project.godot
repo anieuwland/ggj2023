@@ -12,6 +12,7 @@ config_version=4
 
 config/name="ggj2023"
 run/main_scene="res://Game.tscn"
+boot_splash/image="res://characters/1.png"
 config/icon="res://icon.png"
 
 [display]
