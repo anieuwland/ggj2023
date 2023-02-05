@@ -118,7 +118,7 @@ func onFightButtonPressed():
 	arena.add_child(fighter2)
 	var game_node = get_node("/root/Game")
 	game_node.get_node('kitcken/menu_select').play()
-	game_node.change_scene_to_node(arena)
+	game_node.change_scene_to_node(arena, false)
 
 func menu_navigate_sound():
 	get_node('/root/Game/kitcken/menu_navigate').play()

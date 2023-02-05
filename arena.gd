@@ -114,7 +114,7 @@ func on_battle_restart_timer():
 		$announce_victory.play()
 		yield(get_tree().create_timer(3), "timeout")
 		var game_node = get_node("/root/Game")
-		game_node.change_scene("res://Menus/CharacterSelection.tscn")
+		game_node.change_scene("res://Menus/CharacterSelection.tscn", true)
 
 func _enable_object(object, enabledness: bool):
 	object.set_process(enabledness)
