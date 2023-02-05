@@ -171,6 +171,11 @@ func on_suffer(amount: float) -> void: # does not actually deal the damage, just
 		var juice_big = juice_big_scene.instance()
 		juice_center.add_child(juice_big)
 		juice_big.emitting = true
+	elif amount == 1:
+		var juice = juice_scene.instance()
+		juice_center.add_child(juice)
+		juice.emitting = true
+		Input.start_joy_vibration(controller_id, 0, 1, 0.15)
 	else:
 		assert("No animation for that amount of damage.")
 

@@ -5,6 +5,7 @@ onready var fighter2 = get_node("fighter2")
 onready var healthbar1 = $ui_overlay/healthbar1
 onready var healthbar2 = $ui_overlay/healthbar2
 onready var countdown = $ui_overlay/countdown
+onready var mixer = $Mixer
 
 var wins_p1: int = 0
 var wins_p2: int = 0
@@ -17,6 +18,8 @@ func _ready():
 	healthbar1.connect("health_depleted", self, "on_depleted_health1")
 	healthbar2.connect("health_depleted", self, "on_depleted_health2")
 	$battle_restart_timer.connect("timeout", self, "on_battle_restart_timer")
+	
+	mixer.connect("deal_damage", self, "_on_mixer_deal_damage")
 	
 	reset()
 	countdown.start()
@@ -50,6 +53,14 @@ func on_fighter2_deal_damage(fighter: Node, damage: float) -> void:
 		healthbar1.suffer(damage)
 	$background.juicyness = calc_juicyness()
 
+func _on_mixer_deal_damage(fighter: Node, damage: float) -> void:
+	if fighter.name == "fighter1":
+		fighter1.on_suffer(damage)
+		healthbar1.suffer(damage)
+	elif fighter.name == "fighter2":
+		fighter2.on_suffer(damage)
+		healthbar2.suffer(damage)
+	$background.juicyness = calc_juicyness()
 func calc_juicyness() -> float:
 	var dealt1 = healthbar1.health_max - healthbar1.health
 	var dealt2 = healthbar2.health_max - healthbar2.health
