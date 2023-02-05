@@ -18,8 +18,7 @@ var char_select_sound = preload("res://resources/audio/charselect.wav")
 func update_player1(var old_character: int):
 	selectors[old_character].texture = selector_none
 	var n = find_node("Player1")
-	while n.get_child_count() > 0:
-		n.remove_child(n.get_child(0))
+	n.remove_child(player1)
 	player1 = characters[player1_character].duplicate()
 	n.add_child(player1)
 	selectors[player1_character].texture = selector_blue
@@ -27,8 +26,7 @@ func update_player1(var old_character: int):
 func update_player2(var old_character: int):
 	selectors[old_character].texture = selector_none
 	var n = find_node("Player2")
-	while n.get_child_count() > 0:
-		n.remove_child(n.get_child(0))
+	n.remove_child(player2)
 	player2 = characters[player2_character].duplicate()
 	n.add_child(player2)
 	selectors[player2_character].texture = selector_red

@@ -11,7 +11,7 @@
 [ext_resource path="res://unjuicethatbadboy.tscn" type="PackedScene" id=9]
 
 [sub_resource type="DynamicFont" id=1]
-size = 130
+size = 180
 font_data = ExtResource( 4 )
 
 [sub_resource type="RectangleShape2D" id=2]
