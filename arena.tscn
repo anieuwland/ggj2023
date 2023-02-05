@@ -15,7 +15,7 @@
 [ext_resource path="res://resources/audio/ko.wav" type="AudioStream" id=13]
 
 [sub_resource type="DynamicFont" id=1]
-size = 130
+size = 180
 font_data = ExtResource( 4 )
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -76,7 +76,7 @@ z_index = -1
 health_color = Color( 1, 0, 0, 1 )
 
 [node name="battle_restart_timer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 2.5
 
 [node name="wall_right" type="StaticBody2D" parent="."]
 

@@ -7,7 +7,7 @@ onready var healthbar2 = $ui_overlay/healthbar2
 onready var countdown = $ui_overlay/countdown
 onready var mixer = $Mixer
 
-var juicing_duration = 2.0
+var juicing_duration = 2
 
 func _ready():
 	fighter1.connect("deal_damage", self, "on_fighter1_deal_damage")
@@ -33,7 +33,7 @@ func reset():
 	_enable_object(fighter1, false)
 	_enable_object(fighter2, false)
 
-	$battle_restart_timer.wait_time = 6
+	$battle_restart_timer.wait_time = 2.5
 	$background.juicyness = 0
 	fighter1.reset()
 	fighter2.reset()
@@ -112,6 +112,7 @@ func on_battle_restart_timer():
 		$ui_overlay/battle_msg.show()
 		$ui_overlay/countdown.hide()
 		$announce_victory.play()
+		yield(get_tree().create_timer(3), "timeout")
 		var game_node = get_node("/root/Game")
 		game_node.change_scene("res://Menus/CharacterSelection.tscn")
 
