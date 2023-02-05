@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://countdown/countdown.tscn" type="PackedScene" id=1]
 [ext_resource path="res://health/health.tscn" type="PackedScene" id=2]
@@ -9,6 +9,10 @@
 [ext_resource path="res://background/mixer.tscn" type="PackedScene" id=7]
 [ext_resource path="res://background/mixer_controller.tscn" type="PackedScene" id=8]
 [ext_resource path="res://unjuicethatbadboy.tscn" type="PackedScene" id=9]
+[ext_resource path="res://resources/audio/round1.wav" type="AudioStream" id=10]
+[ext_resource path="res://resources/audio/round2.wav" type="AudioStream" id=11]
+[ext_resource path="res://resources/audio/round3.wav" type="AudioStream" id=12]
+[ext_resource path="res://resources/audio/ko.wav" type="AudioStream" id=13]
 
 [sub_resource type="DynamicFont" id=1]
 size = 130
@@ -71,10 +75,6 @@ scale = Vector2( -3, 2 )
 z_index = -1
 health_color = Color( 1, 0, 0, 1 )
 
-[node name="announce_victory" type="AudioStreamPlayer2D" parent="."]
-position = Vector2( -509, -595 )
-stream = ExtResource( 5 )
-
 [node name="battle_restart_timer" type="Timer" parent="."]
 wait_time = 3.0
 
@@ -106,3 +106,18 @@ scale = Vector2( 0.3, 0.3 )
 
 [node name="MixerController" parent="." instance=ExtResource( 8 )]
 mixer = NodePath("../Mixer")
+
+[node name="announce_round1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+
+[node name="announce_round2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+
+[node name="announce_round3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+
+[node name="announce_ko" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+
+[node name="announce_victory" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
