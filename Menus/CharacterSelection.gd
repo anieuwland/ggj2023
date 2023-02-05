@@ -92,6 +92,9 @@ func _process(delta):
 			player2_character = initial_value
 		else:
 			update_player2(initial_value)
+	
+	if Input.is_action_just_pressed("ui_accept"):
+		onFightButtonPressed()
 
 func onFightButtonPressed():
 	var arena = preload("res://arena.tscn").instance()
