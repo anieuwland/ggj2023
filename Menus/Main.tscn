@@ -23,7 +23,7 @@ func _ready():
 "
 
 [sub_resource type="DynamicFont" id=1]
-size = 80
+size = 110
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
@@ -41,14 +41,14 @@ rect_pivot_offset = Vector2( 419, 445 )
 script = SubResource( 2 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_left = 167.0
-margin_top = 239.0
-margin_right = 856.0
-margin_bottom = 361.0
+margin_left = 40.0
+margin_top = 221.0
+margin_right = 984.0
+margin_bottom = 378.0
 
-[node name="choose_text" type="Label" parent="VBoxContainer"]
-margin_right = 689.0
-margin_bottom = 92.0
+[node name="title_text" type="Label" parent="VBoxContainer"]
+margin_right = 944.0
+margin_bottom = 127.0
 rect_pivot_offset = Vector2( 384, 15 )
 custom_fonts/font = SubResource( 1 )
 text = "Rooting for You"
@@ -56,9 +56,9 @@ align = 1
 script = ExtResource( 2 )
 
 [node name="continue_text" type="Label" parent="VBoxContainer"]
-margin_top = 96.0
-margin_right = 689.0
-margin_bottom = 122.0
+margin_top = 131.0
+margin_right = 944.0
+margin_bottom = 157.0
 custom_fonts/font = SubResource( 3 )
-text = "Press space or or start to continue"
+text = "Press enter / start to continue"
 align = 1

@@ -16,6 +16,8 @@
 
 [sub_resource type="DynamicFont" id=1]
 size = 120
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 4 )
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -49,10 +51,6 @@ position = Vector2( 207, -208 )
 position = Vector2( -509, -595 )
 z_index = 1000
 
-[node name="countdown" parent="ui_overlay" instance=ExtResource( 1 )]
-margin_right = 1021.0
-margin_bottom = 230.0
-
 [node name="battle_msg" type="Label" parent="ui_overlay"]
 margin_left = -2.0
 margin_top = 310.0
@@ -62,6 +60,10 @@ custom_fonts/font = SubResource( 1 )
 text = "Victory"
 align = 1
 valign = 1
+
+[node name="countdown" parent="ui_overlay" instance=ExtResource( 1 )]
+margin_right = 1021.0
+margin_bottom = 230.0
 
 [node name="healthbar1" parent="ui_overlay" instance=ExtResource( 2 )]
 position = Vector2( 165, 538 )

@@ -12,10 +12,14 @@
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 7 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 20
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 7 )
 
 [node name="Root" type="CenterContainer"]
@@ -43,7 +47,7 @@ margin_right = 884.0
 margin_bottom = 64.0
 rect_pivot_offset = Vector2( 384, 15 )
 custom_fonts/font = SubResource( 2 )
-text = "Press enter or start to begin"
+text = "Press enter / start to begin"
 align = 1
 
 [node name="Players" type="HBoxContainer" parent="VBoxContainer"]
