@@ -7,7 +7,7 @@
 size = 200
 font_data = ExtResource( 2 )
 
-[node name="Label" type="Label"]
+[node name="countdown" type="Label"]
 margin_right = 1019.0
 margin_bottom = 599.0
 grow_horizontal = 2
@@ -17,4 +17,4 @@ custom_fonts/font = SubResource( 1 )
 align = 1
 script = ExtResource( 1 )
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="beeps" type="AudioStreamPlayer" parent="."]

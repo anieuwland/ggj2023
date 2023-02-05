@@ -14,7 +14,7 @@ func _ready():
 	timer.one_shot = false
 	add_child(timer)
 	timer.connect("timeout", self, "_on_timer_timeout")
-	$AudioStreamPlayer2D.stream = countdown_sound
+	$beeps.stream = countdown_sound
 	reset()
 
 func reset():
@@ -24,7 +24,7 @@ func reset():
 	
 func start():
 	timer.start()
-	$AudioStreamPlayer2D.play()
+	$beeps.play()
 
 func _on_timer_timeout():
 	countdown -= 1

@@ -22,6 +22,7 @@ func _ready():
 	
 	reset()
 	countdown.start()
+	$announce_round1.play()
 
 func _process(delta):
 	pass
@@ -89,12 +90,20 @@ func on_depleted_health(victor, ko):
 	$ui_overlay/battle_msg.text = ko + " K.O."
 	$ui_overlay/battle_msg.show()
 	$battle_restart_timer.start()
+	$announce_ko.play()
 
 func on_battle_restart_timer():
 	$battle_restart_timer.stop()
 	reset()
 	if not depletions_p1 >= 2 and not depletions_p2 >= 2:
 		countdown.start()
+		var which_round = depletions_p1 + depletions_p2
+		if which_round == 0:
+			$announce_round1.play()
+		elif which_round == 1:
+			$announce_round2.play()
+		elif which_round == 2:
+			$announce_round3.play()
 	else:
 		var victor_str = "P1" if depletions_p2 >= 2 else "P2"
 		var ko_obj = fighter2 if depletions_p2 >= 2 else fighter1
