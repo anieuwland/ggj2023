@@ -50,6 +50,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed("player1_left"):
+		menu_navigate_sound()
 		var initial_value = player1_character
 		player1_character -= 1
 		if player1_character == player2_character:
@@ -60,6 +61,7 @@ func _process(delta):
 			update_player1(initial_value)
 
 	if Input.is_action_just_pressed("player1_right"):
+		menu_navigate_sound()
 		var initial_value = player1_character
 		player1_character += 1
 		if player1_character == player2_character:
@@ -70,6 +72,7 @@ func _process(delta):
 			update_player1(initial_value)
 	
 	if Input.is_action_just_pressed("player2_left"):
+		menu_navigate_sound()
 		var initial_value = player2_character
 		player2_character -= 1
 		if player1_character == player2_character:
@@ -80,6 +83,7 @@ func _process(delta):
 			update_player2(initial_value)
 
 	if Input.is_action_just_pressed("player2_right"):
+		menu_navigate_sound()
 		var initial_value = player2_character
 		player2_character += 1
 		if player1_character == player2_character:
@@ -113,4 +117,8 @@ func onFightButtonPressed():
 	arena.add_child(fighter1)
 	arena.add_child(fighter2)
 	var game_node = get_node("/root/Game")
+	game_node.get_node('kitcken/menu_select').play()
 	game_node.change_scene_to_node(arena)
+
+func menu_navigate_sound():
+	get_node('/root/Game/kitcken/menu_navigate').play()
