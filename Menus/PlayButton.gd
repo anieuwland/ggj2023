@@ -1,21 +1,7 @@
 extends Button
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
 func onPressed():
 	var game_node = get_node("/root/Game")
+	game_node.get_node('kitcken/menu_select').play()
 	game_node.change_scene("res://Menus/CharacterSelection.tscn")
