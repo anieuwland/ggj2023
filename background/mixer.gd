@@ -13,14 +13,14 @@ func _ready():
 	collider.collision_mask = 0
 	collider.collision_layer = 0
 
-func turnOn(var duration: float):
+func turnOn(var warmup: float, var duration: float):
 	
 	# return early if the mixer is still on
 	if animation.is_playing():
 		return
 	
 	animation.play("Shake")
-	yield(get_tree().create_timer(1.8), "timeout")
+	yield(get_tree().create_timer(warmup), "timeout")
 	collider.collision_mask = initial_collision_mask
 	collider.collision_layer = initial_collision_layer
 	sprite.playing = true

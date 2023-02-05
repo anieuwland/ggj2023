@@ -10,9 +10,9 @@ export(NodePath) var mixer
 onready var mixerNode = get_node(mixer)
 
 func _ready():
-	pass
-	
-func _process(delta):
-	if Input.is_action_just_pressed("player1_up"):
-		mixerNode.turnOn(5)
-		
+	controlForever()
+
+func controlForever():
+	while true:
+		yield(get_tree().create_timer(15), "timeout")
+		mixerNode.turnOn(1.5, 3)
