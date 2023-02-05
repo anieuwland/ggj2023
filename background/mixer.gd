@@ -26,11 +26,15 @@ func turnOn(var warmup: float, var duration: float):
 		return
 	
 	animation.play("Shake")
+	$shakesound.play()
 	yield(get_tree().create_timer(warmup), "timeout")
+	$shakesound.stop()
+	$blendsound.play()
 	collider.collision_mask = initial_collision_mask
 	collider.collision_layer = initial_collision_layer
 	sprite.playing = true
 	yield(get_tree().create_timer(duration), "timeout")
+	$blendsound.stop()
 	collider.collision_mask = 0
 	collider.collision_layer = 0
 	sprite.playing = false
