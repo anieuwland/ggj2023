@@ -1,16 +1,17 @@
 extends Node2D
 
+export(Color) var health_color: Color
 
 var health_max = 120.0
 var health = 120.0 # 100 health points
 
 onready var outline = $Outline
-onready var healthMeter = $HealthMeter
+onready var health_meter = $HealthMeter
 
 signal health_depleted()
 
-
-func _init():
+func _ready():
+	outline.default_color = health_color
 	pass
 	#update_healthbar(health)
 
@@ -27,7 +28,7 @@ func heal(points):
 	return health
 
 func update_healthbar(health_):
-	healthMeter.scale.x = (health_ / health_max)
+	health_meter.scale.x = (health_ / health_max)
 
 func reset():
 	health = health_max
