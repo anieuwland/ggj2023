@@ -1,4 +1,4 @@
-extends Button
+extends Label
 
 
 func onPressed():
