@@ -15,7 +15,7 @@
 [ext_resource path="res://resources/audio/ko.wav" type="AudioStream" id=13]
 
 [sub_resource type="DynamicFont" id=1]
-size = 180
+size = 120
 font_data = ExtResource( 4 )
 
 [sub_resource type="RectangleShape2D" id=2]
