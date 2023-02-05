@@ -21,10 +21,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	time += delta
-	if juicyness < 0:
-		juicyness = 0
-	if juicyness > 1:
-		juicyness = 1
+	juicyness = clamp(juicyness, 0.0, 1.0)
 	juice.position.y = lerp(37, 0, juicyness)
 	if Input.is_action_just_pressed("player1_up"):
 		drain(1)
