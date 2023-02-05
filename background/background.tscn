@@ -45,10 +45,10 @@ scale = Vector2( 0.3, 0.25 )
 z_index = 10
 
 [node name="P1" parent="Glasses" instance=ExtResource( 4 )]
-position = Vector2( -52, 520 )
+position = Vector2( -58.6667, 520 )
 
 [node name="P2" parent="Glasses" instance=ExtResource( 4 )]
-position = Vector2( 2926.67, 520 )
+position = Vector2( 2916.67, 520 )
 
 [node name="TubeP1" type="Sprite" parent="."]
 position = Vector2( -84, 709 )

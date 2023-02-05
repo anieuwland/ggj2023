@@ -6,8 +6,7 @@ onready var healthbar1 = $ui_overlay/healthbar1
 onready var healthbar2 = $ui_overlay/healthbar2
 onready var countdown = $ui_overlay/countdown
 
-var wins_p1: int = 0
-var wins_p2: int = 0
+var juicing_duration = 4.0
 
 func _ready():
 	fighter1.connect("deal_damage", self, "on_fighter1_deal_damage")
@@ -30,7 +29,7 @@ func reset():
 	_enable_object(fighter1, false)
 	_enable_object(fighter2, false)
 
-	$battle_restart_timer.wait_time = 3
+	$battle_restart_timer.wait_time = 6
 	$background.juicyness = 0
 	fighter1.reset()
 	fighter2.reset()
@@ -58,11 +57,11 @@ func calc_juicyness() -> float:
 	return dealt_perc
 
 func on_depleted_health1():
-	wins_p2 += 1
+	$background.drain_into_glass(juicing_duration, $background/Glasses/P2, $pour1)
 	on_depleted_health("P2")
 
 func on_depleted_health2():
-	wins_p1 += 1
+	$background.drain_into_glass(juicing_duration, $background/Glasses/P1, $pour2)
 	on_depleted_health("P1")
 
 func on_depleted_health(victor):

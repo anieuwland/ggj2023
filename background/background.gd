@@ -38,3 +38,10 @@ func drain(duration: float):
 		yield(get_tree(), "idle_frame")
 	
 	juicyness = 0
+	
+func drain_into_glass(duration: float, glass, pour):
+	var amount = clamp(1 - glass.juicyness, 0.0, 0.5)
+	pour.runFor(duration)
+	drain(duration)
+	glass.fill(amount, duration)
+	

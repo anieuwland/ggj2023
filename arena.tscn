@@ -90,13 +90,14 @@ shape = SubResource( 2 )
 position = Vector2( -444, -297 )
 shape = SubResource( 2 )
 
-[node name="unjuicethatbadboy2" parent="." instance=ExtResource( 9 )]
-position = Vector2( -434, -164 )
-scale = Vector2( -1, 1 )
+[node name="pour1" parent="." instance=ExtResource( 9 )]
+position = Vector2( 430, -167 )
 z_index = 11
 
-[node name="unjuicethatbadboy" parent="." instance=ExtResource( 9 )]
-position = Vector2( 430, -167 )
+[node name="pour2" parent="." instance=ExtResource( 9 )]
+position = Vector2( -434, -164 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
 z_index = 11
 
 [node name="Mixer" parent="." instance=ExtResource( 7 )]
