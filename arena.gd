@@ -85,7 +85,6 @@ func on_depleted_health(victor, ko):
 	_enable_object(fighter1, false)
 	_enable_object(fighter2, false)
 	_enable_object($Mixer, false)
-	_enable_object($MixerController, false)
 	$MixerController.enabled = false
 	$ui_overlay/battle_msg.text = ko + " K.O."
 	$ui_overlay/battle_msg.show()
@@ -125,5 +124,4 @@ func on_countdown_finished():
 	_enable_object(fighter1, true)
 	_enable_object(fighter2, true)
 	_enable_object($Mixer, true)
-	_enable_object($MixerController, false)
 	$MixerController.enabled = true

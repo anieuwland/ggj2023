@@ -9,6 +9,9 @@ onready var animation = $AnimationPlayer
 signal deal_damage(target, damage)
 var watt_equals_PAIN = 1
 
+func isOn() -> bool:
+	return animation.is_playing()
+
 func _ready():
 	initial_collision_mask = collider.collision_mask
 	initial_collision_layer = collider.collision_layer
