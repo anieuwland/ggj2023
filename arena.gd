@@ -6,6 +6,7 @@ onready var healthbar1 = $ui_overlay/healthbar1
 onready var healthbar2 = $ui_overlay/healthbar2
 onready var countdown = $ui_overlay/countdown
 onready var mixer = $Mixer
+onready var mixerController = $MixerController
 
 var juicing_duration = 2
 
@@ -19,6 +20,7 @@ func _ready():
 	$battle_restart_timer.connect("timeout", self, "on_battle_restart_timer")
 	
 	mixer.connect("deal_damage", self, "_on_mixer_deal_damage")
+	mixerController.enabled = false
 	
 	reset()
 	countdown.start()
@@ -40,6 +42,7 @@ func reset():
 	healthbar1.reset()
 	healthbar2.reset()
 	countdown.reset()
+	mixer.position.x = 2
 
 func on_fighter1_deal_damage(fighter: Node, damage: float) -> void:
 	if fighter.name == "fighter2":

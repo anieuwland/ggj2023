@@ -10,6 +10,10 @@ var movementSpeed = 0.5
 var movement = movementSpeed
 
 func _ready():
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	if rng.randf_range(0, 1) < 0.5:
+		movement *= -1
 	controlForever()
 
 func controlForever():
@@ -18,13 +22,8 @@ func controlForever():
 		if enabled && not stop:
 			mixerNode.turnOn(1.5, 3)
 
-var frameNum = 0
 func _process(delta):
-	frameNum += 1
-	if (frameNum > 8):
-		frameNum = 0
-	print(enabled, frameNum)
-	if (not mixerNode.isOn()):
+	if (enabled && not mixerNode.isOn()):
 		if (mixerNode.position.x < -200):
 			movement = movementSpeed
 		if (mixerNode.position.x > 210):
