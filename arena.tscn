@@ -43,7 +43,7 @@ position = Vector2( 207, -208 )
 
 [node name="ui_overlay" type="Node2D" parent="."]
 position = Vector2( -509, -595 )
-z_index = 10
+z_index = 1000
 
 [node name="countdown" parent="ui_overlay" instance=ExtResource( 1 )]
 margin_right = 1021.0

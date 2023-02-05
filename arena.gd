@@ -60,6 +60,7 @@ func _on_mixer_deal_damage(fighter: Node, damage: float) -> void:
 		fighter2.on_suffer(damage)
 		healthbar2.suffer(damage)
 	$background.juicyness = calc_juicyness()
+	
 func calc_juicyness() -> float:
 	var dealt1 = healthbar1.health_max - healthbar1.health
 	var dealt2 = healthbar2.health_max - healthbar2.health
