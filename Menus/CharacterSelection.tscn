@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://characters/beetroot.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Menus/CharacterSelection.gd" type="Script" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://characters/parsnip.tscn" type="PackedScene" id=5]
 [ext_resource path="res://characters/raddish.tscn" type="PackedScene" id=6]
 [ext_resource path="res://TitanOne-Regular.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Menus/assets/platform_red.jpg" type="Texture" id=8]
+[ext_resource path="res://Menus/assets/platform_blue.jpg" type="Texture" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 7 )
@@ -43,6 +45,11 @@ margin_bottom = 250.0
 rect_min_size = Vector2( 200, 250 )
 rect_clip_content = true
 
+[node name="Sprite" type="Sprite" parent="VBoxContainer/Players/Player1"]
+position = Vector2( 100.5, 124 )
+scale = Vector2( 0.5425, 0.471429 )
+texture = ExtResource( 9 )
+
 [node name="VSeparator" type="VSeparator" parent="VBoxContainer/Players"]
 modulate = Color( 1, 1, 1, 0 )
 margin_left = 204.0
@@ -72,6 +79,11 @@ margin_right = 716.0
 margin_bottom = 250.0
 rect_min_size = Vector2( 200, 250 )
 rect_clip_content = true
+
+[node name="Sprite" type="Sprite" parent="VBoxContainer/Players/Player2"]
+position = Vector2( 100, 98 )
+scale = Vector2( 0.5675, 0.576786 )
+texture = ExtResource( 8 )
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
