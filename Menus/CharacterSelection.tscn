@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://characters/beetroot.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Menus/CharacterSelection.gd" type="Script" id=2]
@@ -11,6 +11,11 @@
 [ext_resource path="res://Menus/assets/platform_blue.jpg" type="Texture" id=9]
 
 [sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
 font_data = ExtResource( 7 )
 
 [node name="Root" type="CenterContainer"]
@@ -20,22 +25,32 @@ script = ExtResource( 2 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_left = 70.0
-margin_top = 44.0
+margin_top = 22.0
 margin_right = 954.0
-margin_bottom = 555.0
+margin_bottom = 578.0
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="choose_text" type="Label" parent="VBoxContainer"]
 margin_right = 884.0
-margin_bottom = 19.0
+margin_bottom = 36.0
+rect_pivot_offset = Vector2( 384, 15 )
 custom_fonts/font = SubResource( 1 )
-text = "Choose your Character!"
+text = "Choose your charooter!"
+align = 1
+
+[node name="explain_text" type="Label" parent="VBoxContainer"]
+margin_top = 40.0
+margin_right = 884.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( 384, 15 )
+custom_fonts/font = SubResource( 2 )
+text = "Press enter or start to begin"
 align = 1
 
 [node name="Players" type="HBoxContainer" parent="VBoxContainer"]
-margin_left = 84.0
-margin_top = 23.0
-margin_right = 800.0
-margin_bottom = 273.0
+margin_left = 136.0
+margin_top = 68.0
+margin_right = 748.0
+margin_bottom = 318.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
@@ -57,25 +72,16 @@ margin_right = 304.0
 margin_bottom = 250.0
 rect_min_size = Vector2( 100, 0 )
 
-[node name="Button" type="Button" parent="VBoxContainer/Players"]
-margin_left = 308.0
-margin_right = 408.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 100, 40 )
-size_flags_horizontal = 0
-size_flags_vertical = 0
-text = "FIGHT!"
-
 [node name="VSeparator2" type="VSeparator" parent="VBoxContainer/Players"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 412.0
-margin_right = 512.0
+margin_left = 308.0
+margin_right = 408.0
 margin_bottom = 250.0
 rect_min_size = Vector2( 100, 0 )
 
 [node name="Player2" type="Panel" parent="VBoxContainer/Players"]
-margin_left = 516.0
-margin_right = 716.0
+margin_left = 412.0
+margin_right = 612.0
 margin_bottom = 250.0
 rect_min_size = Vector2( 200, 250 )
 rect_clip_content = true
@@ -87,15 +93,15 @@ texture = ExtResource( 8 )
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
-margin_top = 277.0
+margin_top = 322.0
 margin_right = 884.0
-margin_bottom = 307.0
+margin_bottom = 352.0
 rect_min_size = Vector2( 0, 30 )
 
 [node name="Characters" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 311.0
+margin_top = 356.0
 margin_right = 884.0
-margin_bottom = 511.0
+margin_bottom = 556.0
 
 [node name="Character1" type="Panel" parent="VBoxContainer/Characters"]
 margin_right = 200.0
@@ -186,5 +192,3 @@ position = Vector2( 83, 180 )
 scale = Vector2( 0.512472, 0.512472 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-
-[connection signal="pressed" from="VBoxContainer/Players/Button" to="." method="onFightButtonPressed"]
