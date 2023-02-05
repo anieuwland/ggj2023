@@ -24,7 +24,7 @@ func _process(delta):
 	if (frameNum > 8):
 		frameNum = 0
 	print(enabled, frameNum)
-	if (not mixerNode.isOn()):
+	if (enabled && not mixerNode.isOn()):
 		if (mixerNode.position.x < -200):
 			movement = movementSpeed
 		if (mixerNode.position.x > 210):
