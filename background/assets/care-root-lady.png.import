@@ -2,24 +2,24 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/selector_none.jpg-939cd68dbbaa0bbf1ff75d7e5fd4327f.stex"
+path="res://.import/care-root-lady.png-c98cb0f321a1739bc41cd624b5276fcb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Menus/assets/selector_none.jpg"
-dest_files=[ "res://.import/selector_none.jpg-939cd68dbbaa0bbf1ff75d7e5fd4327f.stex" ]
+source_file="res://background/assets/care-root-lady.png"
+dest_files=[ "res://.import/care-root-lady.png-c98cb0f321a1739bc41cd624b5276fcb.stex" ]
 
 [params]
 
-compress/mode=1
+compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=2
+flags/repeat=0
 flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
