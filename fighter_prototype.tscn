@@ -1,6 +1,11 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://fighter.gd" type="Script" id=1]
+[ext_resource path="res://resources/audio/punch.mp3" type="AudioStream" id=2]
+[ext_resource path="res://resources/audio/kick.mp3" type="AudioStream" id=3]
+[ext_resource path="res://resources/audio/kick_hit.mp3" type="AudioStream" id=4]
+[ext_resource path="res://resources/audio/block.mp3" type="AudioStream" id=5]
+[ext_resource path="res://resources/audio/impact1.wav" type="AudioStream" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 44.5, 63 )
@@ -12,5 +17,24 @@ script = ExtResource( 1 )
 position = Vector2( 11.5, -63 )
 shape = SubResource( 1 )
 
-[node name="impact" type="AudioStreamPlayer2D" parent="."]
+[node name="impact" type="AudioStreamPlayer" parent="."]
 pitch_scale = 0.59
+
+[node name="punch" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+
+[node name="grab" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+
+[node name="grabsuccess" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="kick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="block" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[node name="suffer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+pitch_scale = 1.72

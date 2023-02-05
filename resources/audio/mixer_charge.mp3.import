@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/mixer_charge.mp3-fa0287fdfcef149f168cccc43b20afae.mp3str"
+
+[deps]
+
+source_file="res://resources/audio/mixer_charge.mp3"
+dest_files=[ "res://.import/mixer_charge.mp3-fa0287fdfcef149f168cccc43b20afae.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

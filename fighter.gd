@@ -85,11 +85,15 @@ func _process(_delta):
 			if Input.is_action_just_pressed(action_hit):
 				hit_targets.clear()
 				animation_state.travel("punch")
+				$punch.pitch_scale = rng.randf_range(0.9, 1.1)
+				$punch.play()
 			elif Input.is_action_just_pressed(action_block):
 				animation_state.travel("block")
 			elif Input.is_action_just_pressed(action_grab):
 				hit_targets.clear()
 				animation_state.travel("grab")
+				$grab.pitch_scale = rng.randf_range(0.3, 0.5)
+				$grab.play()
 
 func _on_fist_hit(area: Area2D) -> void:
 	match get_state():
@@ -119,8 +123,8 @@ func _on_fist_hit(area: Area2D) -> void:
 						target = fighter
 						target.getgrabbed()
 						animation_state.travel("kick")
-						$impact.pitch_scale = rng.randf_range(0.5, 3.0)
-						$impact.play()
+						$grabsuccess.pitch_scale = rng.randf_range(0.8, 1.2)
+						$grabsuccess.play()
 		_:
 			print("Hit callback called but not in a matching state.")
 
@@ -146,6 +150,8 @@ func _on_kick() -> void:
 	emit_signal("deal_damage", target, kick_damage)
 	target.throw()
 	target = null
+	$kick.pitch_scale = rng.randf_range(0.8, 1.2)
+	$kick.play()
 
 func throw() -> void:
 	animation_state.travel("kicked")
@@ -161,6 +167,8 @@ func interrupt() -> void:
 func blocksuccess() -> void:
 	fist.reset_action()
 	animation_state.travel("dummy")
+	$block.pitch_scale = rng.randf_range(0.8, 1.2)
+	$block.play()
 		
 func on_suffer(amount: float) -> void: # does not actually deal the damage, just for visuals
 	if amount == punch_damage:
@@ -176,6 +184,8 @@ func on_suffer(amount: float) -> void: # does not actually deal the damage, just
 		juice_center.add_child(juice)
 		juice.emitting = true
 		Input.start_joy_vibration(controller_id, 0, 1, 0.15)
+		$suffer.pitch_scale = rng.randf_range(1.5, 2.0)
+		$suffer.play()
 	else:
 		assert("No animation for that amount of damage.")
 

@@ -3,7 +3,7 @@
 [ext_resource path="res://juice.png" type="Texture" id=1]
 [ext_resource path="res://juice.gd" type="Script" id=2]
 
-[node name="CPUParticles2D" type="CPUParticles2D"]
+[node name="CPUParticles2D2" type="CPUParticles2D"]
 emitting = false
 amount = 20
 one_shot = true
