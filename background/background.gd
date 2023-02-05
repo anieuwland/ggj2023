@@ -9,12 +9,18 @@ export var juicyness = 0.0
 
 onready var juice = $Juice
 
+var time = 0
+
+func map(value, min1, max1, min2, max2) -> float:
+	return min2 + (value - min1) * (max2 - min2) / (max1 - min1)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	time += delta
 	if juicyness < 0:
 		juicyness = 0
 	if juicyness > 1:
@@ -24,13 +30,14 @@ func _process(delta):
 		drain(1)
 
 func drain(duration: float):
-	var durationLeft = duration
-	var stepDuration = 0.02
+	var beginJuice = juicyness
+	var beginTime = time
+	var endTime = time + duration
+	var stepTime = 0.02
 	
-	while durationLeft > 0:
-		yield(get_tree().create_timer(stepDuration), "timeout")
-		var stepsLeft = durationLeft / stepDuration
-		var decreaseBy = juicyness / stepsLeft
-		juicyness -= decreaseBy
-		durationLeft -= stepDuration
-		
+	while time < endTime:
+		var durationLeft = endTime - time
+		juicyness = map(time, beginTime, endTime, beginJuice, 0)
+		yield(get_tree(), "idle_frame")
+	
+	juicyness = 0
