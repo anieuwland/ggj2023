@@ -62,11 +62,13 @@ valign = 1
 [node name="healthbar1" parent="ui_overlay" instance=ExtResource( 2 )]
 position = Vector2( 165, 538 )
 scale = Vector2( 3, 2 )
+z_index = -1
 health_color = Color( 0, 0, 1, 1 )
 
 [node name="healthbar2" parent="ui_overlay" instance=ExtResource( 2 )]
 position = Vector2( 858, 538 )
 scale = Vector2( -3, 2 )
+z_index = -1
 health_color = Color( 1, 0, 0, 1 )
 
 [node name="announce_victory" type="AudioStreamPlayer2D" parent="."]
