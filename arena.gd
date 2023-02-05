@@ -85,6 +85,7 @@ func on_depleted_health(victor, ko):
 	_enable_object(fighter2, false)
 	_enable_object($Mixer, false)
 	_enable_object($MixerController, false)
+	$MixerController.enabled = false
 	$ui_overlay/battle_msg.text = ko + " K.O."
 	$ui_overlay/battle_msg.show()
 	$battle_restart_timer.start()
@@ -95,17 +96,13 @@ func on_battle_restart_timer():
 	if not depletions_p1 >= 2 and not depletions_p2 >= 2:
 		countdown.start()
 	else:
-		var victor_str = "P1" if depletions_p2 >= 2 else depletions_p1
+		var victor_str = "P1" if depletions_p2 >= 2 else "P2"
 		var ko_obj = fighter2 if depletions_p2 >= 2 else fighter1
 		ko_obj.hide()
 		$ui_overlay/battle_msg.text = "Victory " + victor_str
 		$ui_overlay/battle_msg.show()
 		$ui_overlay/countdown.hide()
 		$announce_victory.play()
-	   
-func show_final_victory_screen():
-	var final_victor = "P1" if depletions_p2 >= 2 else "P2"
-	print("FINAL VICTOR ", final_victor)
 	
 func _enable_object(object, enabledness: bool):
 	object.set_process(enabledness)
@@ -117,3 +114,4 @@ func on_countdown_finished():
 	_enable_object(fighter2, true)
 	_enable_object($Mixer, true)
 	_enable_object($MixerController, false)
+	$MixerController.enabled = true
