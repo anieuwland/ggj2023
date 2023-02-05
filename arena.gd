@@ -7,7 +7,7 @@ onready var healthbar2 = $ui_overlay/healthbar2
 onready var countdown = $ui_overlay/countdown
 onready var mixer = $Mixer
 
-var juicing_duration = 4.0
+var juicing_duration = 2.0
 
 func _ready():
 	fighter1.connect("deal_damage", self, "on_fighter1_deal_damage")
@@ -68,30 +68,45 @@ func calc_juicyness() -> float:
 	var dealt_perc = dealt / (healthbar1.health_max + healthbar2.health_max)
 	return dealt_perc
 
+var depletions_p1 = 0
 func on_depleted_health1():
+	depletions_p1 += 1
 	$background.drain_into_glass(juicing_duration, $background/Glasses/P2, $pour1)
-	on_depleted_health("P2")
+	on_depleted_health("P2", "P1")
 
+var depletions_p2 = 0
 func on_depleted_health2():
+	depletions_p2 += 1
 	$background.drain_into_glass(juicing_duration, $background/Glasses/P1, $pour2)
-	on_depleted_health("P1")
+	on_depleted_health("P1", "P2")
 
-func on_depleted_health(victor):
+func on_depleted_health(victor, ko):
 	_enable_object(fighter1, false)
 	_enable_object(fighter2, false)
 	_enable_object($Mixer, false)
 	_enable_object($MixerController, false)
-	$ui_overlay/battle_msg.text = "Victory " + victor
+	$ui_overlay/battle_msg.text = ko + " K.O."
 	$ui_overlay/battle_msg.show()
-	$announce_victory.play()
 	$battle_restart_timer.start()
 
 func on_battle_restart_timer():
 	$battle_restart_timer.stop()
 	reset()
-	countdown.start()
+	if not depletions_p1 >= 2 and not depletions_p2 >= 2:
+		countdown.start()
+	else:
+		var victor_str = "P1" if depletions_p2 >= 2 else depletions_p1
+		var ko_obj = fighter2 if depletions_p2 >= 2 else fighter1
+		ko_obj.hide()
+		$ui_overlay/battle_msg.text = "Victory " + victor_str
+		$ui_overlay/battle_msg.show()
+		$ui_overlay/countdown.hide()
+		$announce_victory.play()
+	   
+func show_final_victory_screen():
+	var final_victor = "P1" if depletions_p2 >= 2 else "P2"
+	print("FINAL VICTOR ", final_victor)
 	
-
 func _enable_object(object, enabledness: bool):
 	object.set_process(enabledness)
 	object.set_physics_process(enabledness)
