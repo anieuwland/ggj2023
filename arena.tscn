@@ -60,16 +60,12 @@ align = 1
 valign = 1
 
 [node name="healthbar1" parent="ui_overlay" instance=ExtResource( 2 )]
-margin_left = 14.0
-margin_top = 8.0
-margin_right = 497.0
-margin_bottom = 36.0
+position = Vector2( 165, 538 )
+scale = Vector2( 3, 2 )
 
 [node name="healthbar2" parent="ui_overlay" instance=ExtResource( 2 )]
-margin_left = 526.0
-margin_top = 8.0
-margin_right = 1009.0
-margin_bottom = 36.0
+position = Vector2( 858, 538 )
+scale = Vector2( -3, 2 )
 
 [node name="announce_victory" type="AudioStreamPlayer2D" parent="."]
 position = Vector2( -509, -595 )

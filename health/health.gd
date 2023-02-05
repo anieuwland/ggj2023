@@ -1,15 +1,18 @@
-extends ProgressBar
+extends Node2D
 
 
 var health_max = 120.0
 var health = 120.0 # 100 health points
-var damage = 10.0 # 10 damage
+
+onready var outline = $Outline
+onready var healthMeter = $HealthMeter
 
 signal health_depleted()
 
 
 func _init():
-	update_healthbar(health)
+	pass
+	#update_healthbar(health)
 
 func suffer(damage_):
 	health = clamp(health - damage_, 0, health_max)
@@ -24,7 +27,7 @@ func heal(points):
 	return health
 
 func update_healthbar(health_):
-	value = (health_ / health_max) * 100.0
+	healthMeter.scale.x = (health_ / health_max)
 
 func reset():
 	health = health_max

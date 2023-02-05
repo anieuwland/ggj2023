@@ -14,5 +14,5 @@ func _ready():
 
 func controlForever():
 	while true:
-		yield(get_tree().create_timer(1), "timeout")
+		yield(get_tree().create_timer(15), "timeout")
 		mixerNode.turnOn(1.5, 3)
