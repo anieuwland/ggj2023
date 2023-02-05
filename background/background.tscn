@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://background/assets/blender_full.png" type="Texture" id=1]
 [ext_resource path="res://background/assets/blender_bottom.png" type="Texture" id=2]
@@ -12,6 +12,9 @@
 [ext_resource path="res://background/assets/care-root-lady.png" type="Texture" id=10]
 [ext_resource path="res://background/assets/kitchen_small.jpg" type="Texture" id=11]
 [ext_resource path="res://resources/audio/pour.mp3" type="AudioStream" id=12]
+[ext_resource path="res://background/assets/banner-beetem.png" type="Texture" id=13]
+[ext_resource path="res://background/assets/banner-carrot.png" type="Texture" id=14]
+[ext_resource path="res://background/assets/banner-go-raddish.png" type="Texture" id=15]
 
 [node name="Background" type="Node2D"]
 script = ExtResource( 3 )
@@ -106,3 +109,19 @@ texture = ExtResource( 11 )
 stream = ExtResource( 12 )
 volume_db = 13.333
 pitch_scale = 0.49
+
+[node name="Banner-beetem" type="Sprite" parent="."]
+position = Vector2( 748, 76 )
+scale = Vector2( 0.106907, 0.106907 )
+z_index = -8
+texture = ExtResource( 13 )
+
+[node name="Banner-carrot" type="Sprite" parent="Banner-beetem"]
+position = Vector2( -6323.24, 561.234 )
+scale = Vector2( 1.0726, 1.0726 )
+texture = ExtResource( 14 )
+
+[node name="Banner-go-raddish" type="Sprite" parent="Banner-beetem"]
+position = Vector2( -2703.28, -37.4156 )
+scale = Vector2( 0.774664, 0.774664 )
+texture = ExtResource( 15 )
