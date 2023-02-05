@@ -15,8 +15,6 @@ func _process(delta):
 	time += delta
 	juicyness = clamp(juicyness, 0.0, 1.0)
 	juice.position.y = lerp(809, 392, juicyness)
-	if Input.is_action_just_pressed("player1_up"):
-		fill(0.5, 1)
 
 func fill(amountToAdd: float, duration: float):
 	var beginJuice = juicyness
