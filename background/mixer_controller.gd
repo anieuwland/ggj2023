@@ -14,5 +14,5 @@ func _ready():
 	
 func _process(delta):
 	if Input.is_action_just_pressed("player1_up"):
-		mixerNode.playing = !mixerNode.playing
+		mixerNode.turnOn(5)
 		
