@@ -20,3 +20,17 @@ func _process(delta):
 	if juicyness > 1:
 		juicyness = 1
 	juice.position.y = lerp(37, 0, juicyness)
+	if Input.is_action_just_pressed("player1_up"):
+		drain(1)
+
+func drain(duration: float):
+	var durationLeft = duration
+	var stepDuration = 0.02
+	
+	while durationLeft > 0:
+		yield(get_tree().create_timer(stepDuration), "timeout")
+		var stepsLeft = durationLeft / stepDuration
+		var decreaseBy = juicyness / stepsLeft
+		juicyness -= decreaseBy
+		durationLeft -= stepDuration
+		
