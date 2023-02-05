@@ -6,7 +6,7 @@
 [node name="unjuicethatbadboy" type="CPUParticles2D"]
 emitting = false
 amount = 1000
-lifetime = 0.2
+lifetime = 0.12
 explosiveness = 0.02
 texture = ExtResource( 1 )
 emission_shape = 1
