@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://juice.png" type="Texture" id=1]
+
+[node name="unjuicethatbadboy" type="CPUParticles2D"]
+emitting = false
+amount = 1000
+one_shot = true
+explosiveness = 0.02
+texture = ExtResource( 1 )
+emission_shape = 1
+emission_sphere_radius = 8.0
+direction = Vector2( 1.1, 1 )
+spread = 5.0
+gravity = Vector2( 0, 2000 )
+initial_velocity = 800.0
+initial_velocity_random = 0.5

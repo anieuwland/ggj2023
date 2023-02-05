@@ -2139,7 +2139,8 @@ bones = [ "hip", PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ), "hip/face", Pool
 
 [node name="juice_center" type="Node2D" parent="visuals/parsnip"]
 position = Vector2( 941.641, 1366.13 )
-scale = Vector2( -1, 1 )
+rotation = 1.5708
+scale = Vector2( -2, 2 )
 
 [node name="smileface" type="Polygon2D" parent="visuals"]
 position = Vector2( -40, -294 )
