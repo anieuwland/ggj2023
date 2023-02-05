@@ -44,4 +44,5 @@ func drain_into_glass(duration: float, glass, pour):
 	pour.runFor(duration)
 	drain(duration)
 	glass.fill(amount, duration)
+	$poursound.play()
 	
