@@ -103,7 +103,9 @@ func on_battle_restart_timer():
 		$ui_overlay/battle_msg.show()
 		$ui_overlay/countdown.hide()
 		$announce_victory.play()
-	
+		var game_node = get_node("/root/Game")
+		game_node.change_scene("res://Menus/CharacterSelection.tscn")
+
 func _enable_object(object, enabledness: bool):
 	object.set_process(enabledness)
 	object.set_physics_process(enabledness)
