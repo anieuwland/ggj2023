@@ -89,6 +89,8 @@ func _process(_delta):
 				$punch.play()
 			elif Input.is_action_just_pressed(action_block):
 				animation_state.travel("block")
+				$blocktry.pitch_scale = rng.randf_range(1.7, 2.0)
+				$blocktry.play()
 			elif Input.is_action_just_pressed(action_grab):
 				hit_targets.clear()
 				animation_state.travel("grab")
